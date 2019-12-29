@@ -1,19 +1,14 @@
-// @todo delete this file
-
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('kullananca', 'yuysal', 'yasiN_749',
-    {
-        host: 'localhost',
-        dialect: 'postgres',
-        /*pool: {
-            max: 5,
-            min: 0,
-            acquire: 30000,
-            idle: 10000
-        }*/
-    },
-);
+const env = process.env.NODE_ENV || 'development';
+const config = require(__dirname + '/../config/config.js')[env];
+
+let sequelize;
+if (config.use_env_variable) {
+    sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+    sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 sequelize
     .authenticate()
@@ -23,5 +18,6 @@ sequelize
     .catch(err => {
         console.error('Unable to connect to the database:', err);
     });
+
 
 module.exports = sequelize;
