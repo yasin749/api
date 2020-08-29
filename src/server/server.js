@@ -1,44 +1,31 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-var app = require('../app');
+var app = require('../../app');
 var debug = require('debug')('project:server');
 var http = require('http');
-var models = require("../src/database/models");
+
+// @todo
+var models = require("../database/models");
+
+/* Config */
+const config = require('../config');
 
 /**
  * Get port from environment and store in Express.
  */
-var port = process.env.PORT || '3000';
-app.set('port', port);
+app.set('port', config.port);
 
 /**
  * Create HTTP server.
  */
 var server = http.createServer(app);
 
-
-/**
- * Sequelize database sync
- * @todo delete this line after development
- */
-models.sequelize.sync().then(function () {
-  server.listen(port);
-  server.on('error', onError);
-  server.on('listening', onListening);
-});
-
-
 /**
  * Listen on provided port, on all network interfaces.
- * @todo open this lines
  */
-
-// server.listen(port);
-// server.on('error', onError);
-// server.on('listening', onListening);
+server.listen(config.port);
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Event listener for HTTP server "error" event.
@@ -48,9 +35,9 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof config.port === 'string'
+    ? 'Pipe ' + config.port
+    : 'Port ' + config.port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {

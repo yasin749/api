@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "start": "nodemon ./src/server/server.js",
+    "sequelize:sync": "node ./src/server/sequelize/sync",
+    "serve": "node ./src/server/server.js --release",
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
