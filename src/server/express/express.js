@@ -3,7 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var routes = require('./src/routes');
+var routes = require('../../routes');
 
 var app = express();
 
