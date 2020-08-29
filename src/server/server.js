@@ -1,6 +1,4 @@
-#!/usr/bin/env node
-
-var app = require('../../app');
+var express = require('./express/express');
 var debug = require('debug')('project:server');
 var http = require('http');
 
@@ -13,12 +11,12 @@ const config = require('../config');
 /**
  * Get port from environment and store in Express.
  */
-app.set('port', config.port);
+express.set('port', config.port);
 
 /**
  * Create HTTP server.
  */
-var server = http.createServer(app);
+var server = http.createServer(express);
 
 /**
  * Listen on provided port, on all network interfaces.
