@@ -2,9 +2,6 @@ var express = require('./express/express');
 var debug = require('debug')('project:server');
 var http = require('http');
 
-// @todo
-var models = require("../database/models");
-
 /* Config */
 const config = require('../config');
 
