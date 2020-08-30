@@ -10,24 +10,16 @@ const {
 /* Config */
 const config = require('../config');
 
-/**
- * Set app port
- */
+// Set app port
 express.set('port', config.port);
 
-/**
- * Create HTTP server.
- */
+// Create HTTP server.
 var server = http.createServer(express);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+// Listen on provided port, on all network interfaces
 server.listen(config.port);
 
-/**
- * Listen server events
- */
+// Listen server events
 server.on('error', function () {
     onError();
 });
