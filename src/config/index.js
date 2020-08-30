@@ -1,6 +1,6 @@
 const path = require('path');
 
-const env = process.env.NODE_ENV || 'local';
+const env = process.env.NODE_ENV;
 
 const appConfig = require(path.join(__dirname, 'appConfig', env + '.conf'));
 const databaseConfig = require(path.join(__dirname, 'databaseConfig', env + '.conf'));
