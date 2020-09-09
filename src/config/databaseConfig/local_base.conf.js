@@ -4,4 +4,5 @@ module.exports = {
     database: 'newDatabase',
     host: 'localhost',
     dialect: 'postgres',
+    sync: {alter: true},
 };

@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const {DataTypes} = require('sequelize');
-const sequelize = require('../connection/connection');
 
 const basename = path.basename(__filename);
+
+let models = [];
 
 fs.readdirSync(__dirname)
     .filter(file => {
@@ -11,7 +11,7 @@ fs.readdirSync(__dirname)
     })
     .forEach(file => {
         const model = require(path.join(__dirname, file));
-        model(sequelize, DataTypes);
+        models.push(model);
     });
 
-module.exports = sequelize;
+module.exports = models;

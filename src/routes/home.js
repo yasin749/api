@@ -1,5 +1,5 @@
 /* Models */
-var models = require("../database/models");
+var models = require("../database");
 
 /* Controllers */
 const homeController = require('../controllers/homeController');

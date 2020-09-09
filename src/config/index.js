@@ -1,9 +1,7 @@
-const path = require('path');
-
 const env = process.env.NODE_ENV;
 
-const appConfig = require(path.join(__dirname, 'appConfig', env + '.conf'));
-const databaseConfig = require(path.join(__dirname, 'databaseConfig', env + '.conf'));
+const appConfig = require('./appConfig');
+const databaseConfig = require('./databaseConfig');
 
 module.exports = Object.assign({
     [env]: true,
