@@ -11,7 +11,10 @@
     "start:sync": "npm run start --sync",
     "start": "node ./src/app.js",
     "serve": "npm run start --release",
-    "sequelize": "sequelize"
+    "sequelize": "sequelize",
+    "sequelize:model:generate": "npm run sequelize model:generate -- --name Test-Model --attributes firstAttr:string",
+    "sequelize:generate:migration": "npm run sequelize migration:generate -- --name Test-Migration",
+    "sequelize:generate:seed": "npm run sequelize seed:generate -- --name Test-Seed"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

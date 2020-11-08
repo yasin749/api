@@ -1,7 +1,9 @@
+/* Databases */
+var database = require("../database");
+
 module.exports = {
-    index: function (req, res, next) {
-        res.json({
-            success: true,
-        });
+    index: async function (req, res, next) {
+        const userType = await database.models.UserType.findAll();
+        res.json(userType);
     }
 };
