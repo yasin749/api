@@ -12,14 +12,16 @@
     "start": "node ./src/app.js",
     "serve": "npm run start --release",
     "sequelize": "sequelize",
-    "sequelize:model:generate": "npm run sequelize model:generate -- --name Test-Model --attributes firstAttr:string",
-    "sequelize:generate:migration": "npm run sequelize migration:generate -- --name Test-Migration",
-    "sequelize:generate:seed": "npm run sequelize seed:generate -- --name Test-Seed"
+    "sequelize:generate:model": "npm run sequelize model:generate -- --name TestModel --attributes firstAttr:string",
+    "sequelize:generate:migration": "npm run sequelize migration:generate -- --name TestMigration",
+    "sequelize:generate:seed": "npm run sequelize seed:generate -- --name TestSeed",
+    "db:rebuild": "npm run sequelize db:drop  &&  npm run sequelize db:create  &&  npm run sequelize db:migrate  &&  npm run sequelize db:seed:all"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "http-status-codes": "^2.1.4",
     "morgan": "~1.9.1",
     "pg": "^7.15.0",
     "pg-hstore": "^2.3.3",

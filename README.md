@@ -33,3 +33,8 @@ Options:
   --help     Show help                                                            [boolean]
 
 Please specify a command
+
+
+
+
+https://medium.com/@andrewoons/how-to-define-sequelize-associations-using-migrations-de4333bf75a7

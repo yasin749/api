@@ -20,8 +20,8 @@ var server = http.createServer(express);
 server.listen(config.port);
 
 // Listen server events
-server.on('error', function () {
-    onError();
+server.on('error', function (error) {
+    onError(error);
 });
 server.on('listening', function () {
     onListening(server);

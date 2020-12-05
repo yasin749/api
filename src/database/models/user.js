@@ -1,11 +1,38 @@
+const {Model} = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  var User = sequelize.define('User', {
-    username: DataTypes.STRING
-  });
-
-  User.associate = function(models) {
-    models.User.hasMany(models.Task);
+  class User extends Model {
+    static associate(models) {
+      models.User.belongsTo(models.UserType, {
+        onDelete: "CASCADE",
+      });
+    }
   };
-
+  User.init({
+    fullName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
+    },
+    // @todo bcrypt
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    userTypeId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  }, {
+    sequelize,
+    modelName: 'User',
+  });
   return User;
 };
