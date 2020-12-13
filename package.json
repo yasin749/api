@@ -25,7 +25,8 @@
     "morgan": "~1.9.1",
     "pg": "^7.15.0",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "swagger-ui-dist": "^3.37.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",

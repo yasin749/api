@@ -2,7 +2,7 @@
 var database = require("../../database");
 
 /* Constants */
-var CONSTANTS = require('./constants');
+var CONSTANTS = require('./userConstants');
 
 /* Response */
 var response = require('../../response/response');

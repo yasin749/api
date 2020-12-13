@@ -3,16 +3,20 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var routes = require('../../routes');
+/* Constants */
+var serverConstants = require('../serverConstants');
 
 var app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/v1', routes);
+/* Static */
+app.use(express.static(path.join(__dirname, '../../../public')));
+
+/* Routes */
+app.use(serverConstants.API_PATH.V1, require('../../routes'));
 
 module.exports = app;

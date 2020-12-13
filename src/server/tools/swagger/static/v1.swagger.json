@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "_description": "",
+    "version": "1.0.0",
+    "title": "Kullananca API",
+    "_termsOfService": "http://swagger.io/terms/",
+    "_contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "_license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "_host": "petstore.swagger.io",
+  "_basePath": "/v2",
+  "_tags": [
+    {
+      "name": "user"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "definitions": {
+    "User": {
+      "type": "object"
+    },
+    "Category": {
+      "type": "object"
+    }
+  },
+  "paths": {
+    "/api/v1/user/page/{page}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/category/page/{page}": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    },
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://petstore.swagger.io/oauth/authorize",
+      "flow": "implicit",
+      "scopes": {
+        "read:pets": "read your pets",
+        "write:pets": "modify pets in your account"
+      }
+    }
+  }
+}

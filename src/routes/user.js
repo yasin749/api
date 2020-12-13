@@ -1,6 +1,6 @@
 /* Controllers */
-const homeController = require('../controllers/user/user');
+const userController = require('../controllers/user/userController');
 
 module.exports = function (router) {
-    router.all('/user/page/:page?', homeController.index);
+    router.all('/user/page/:page?', userController.index);
 };

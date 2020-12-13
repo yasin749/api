@@ -35,6 +35,10 @@ Options:
 Please specify a command
 
 
-
+TODO LIST
+pagination mapper
 
 https://medium.com/@andrewoons/how-to-define-sequelize-associations-using-migrations-de4333bf75a7
+
+
+express kaldırılmalı

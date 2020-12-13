@@ -1,5 +1,10 @@
-var express = require('./express/express');
 var http = require('http');
+
+/* App */
+var app = require('./express/express');
+
+/* Swagger */
+var swagger = require('./tools/swagger/swagger');
 
 /* Utils */
 const {
@@ -10,11 +15,8 @@ const {
 /* Config */
 const config = require('../config');
 
-// Set app port
-express.set('port', config.port);
-
 // Create HTTP server.
-var server = http.createServer(express);
+var server = http.createServer(app);
 
 // Listen on provided port, on all network interfaces
 server.listen(config.port);
