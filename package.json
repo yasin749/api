@@ -15,7 +15,7 @@
     "sequelize:generate:model": "npm run sequelize model:generate -- --name TestModel --attributes firstAttr:string",
     "sequelize:generate:migration": "npm run sequelize migration:generate -- --name TestMigration",
     "sequelize:generate:seed": "npm run sequelize seed:generate -- --name TestSeed",
-    "db:rebuild": "npm run sequelize db:drop  &&  npm run sequelize db:create  &&  npm run sequelize db:migrate  &&  npm run sequelize db:seed:all"
+    "sequelize:db:rebuild": "npm run sequelize db:drop  &&  npm run sequelize db:create  &&  npm run sequelize db:migrate  &&  npm run sequelize db:seed:all"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

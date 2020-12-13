@@ -29,6 +29,9 @@
     },
     "Category": {
       "type": "object"
+    },
+    "Product": {
+      "type": "object"
     }
   },
   "paths": {
@@ -59,6 +62,34 @@
           "Category"
         ],
         "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/product/categoryId/{categoryId}/page/{page}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
           {
             "name": "page",
             "in": "path",

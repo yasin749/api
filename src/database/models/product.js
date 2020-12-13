@@ -3,15 +3,17 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Category extends Model {
+  class Product extends Model {
     static associate(models) {
-      models.Category.hasMany(models.Product);
+      models.Product.belongsTo(models.Category, {
+        onDelete: "CASCADE",
+      });
     }
   };
-  Category.init({
-    parentId: {
+  Product.init({
+    categoryId: {
       type: DataTypes.INTEGER,
-      defaultValue: null,
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
@@ -31,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'Category',
+    modelName: 'Product',
   });
-  return Category;
+  return Product;
 };
