@@ -3,38 +3,40 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Product extends Model {
+  class Comment extends Model {
     static associate(models) {
-      models.Product.belongsTo(models.Category, {
+      models.Comment.belongsTo(models.Product, {
         onDelete: "CASCADE",
       });
-      models.Product.hasMany(models.Comment);
+      models.Comment.belongsTo(models.User, {
+        onDelete: "CASCADE",
+      });
     }
   };
-  Product.init({
-    categoryId: {
+  Comment.init({
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    name: {
+    productId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    body: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    sort: {
+    glad: {
       type: DataTypes.INTEGER,
-      defaultValue: 1
+      allowNull: false,
     },
     status: {
       type: DataTypes.INTEGER,
-      defaultValue: 1
+      defaultValue: 1,
     },
   }, {
     sequelize,
-    modelName: 'Product',
+    modelName: 'Comment',
   });
-  return Product;
+  return Comment;
 };
