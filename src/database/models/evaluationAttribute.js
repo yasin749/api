@@ -5,7 +5,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class EvaluationAttribute extends Model {
     static associate(models) {
-      // define association here
+      models.EvaluationAttribute.belongsToMany(models.EvaluationGroup, {
+        through: 'EvaluationGroupRelations',
+      });
     }
   };
   EvaluationAttribute.init({
