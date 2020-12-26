@@ -13,7 +13,6 @@ module.exports = {
         const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
         const users = await database.models.User.findAll({
-            attributes: ['id', 'fullName', 'userTypeId'],
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
             order: [

@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
   class EvaluationAttribute extends Model {
     static associate(models) {
       models.EvaluationAttribute.belongsToMany(models.EvaluationGroup, {
-        timestamps: false,
         through: 'EvaluationGroupRelations',
       });
     }
@@ -23,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'EvaluationAttribute',
+    timestamps: false,
   });
   return EvaluationAttribute;
 };
