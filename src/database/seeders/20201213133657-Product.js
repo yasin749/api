@@ -8,7 +8,25 @@ module.exports = {
         name: 'Iphone 12',
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },
+      {
+        categoryId: 1,
+        name: 'Iphone 12 Mini',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        categoryId: 2,
+        name: 'Galaxy S20',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        categoryId: 2,
+        name: 'Galaxy Node10',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
   },
 

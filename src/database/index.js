@@ -17,8 +17,11 @@ sequelize
     });
 
 // Attach all models to sequelize
-models.forEach(model => {
-    model(sequelize, DataTypes);
+models.forEach(async model => {
+    var createdModel = await model(sequelize, DataTypes);
+
+    // @todo this is workaround
+    createdModel.associate(sequelize.models);
 });
 
 // Sync all models (exist for development, use migrations on production)

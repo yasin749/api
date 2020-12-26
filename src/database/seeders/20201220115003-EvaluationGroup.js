@@ -5,8 +5,6 @@ module.exports = {
     await queryInterface.bulkInsert('EvaluationGroups', [
       {
         name: 'Akıllı Telefon(EG)',
-        createdAt: new Date(),
-        updatedAt: new Date()
       }
     ]);
   },
