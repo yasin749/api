@@ -18,7 +18,55 @@ module.exports = {
         userTypeId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },
+      {
+        fullName: 'Ali',
+        email: 'ali.749@gmail.com',
+        password: 'yasiN_749',
+        userTypeId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        fullName: 'Ahmet',
+        email: 'ahmet.749@gmail.com',
+        password: 'yasiN_749',
+        userTypeId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        fullName: 'Mehmet',
+        email: 'mehmet.749@gmail.com',
+        password: 'yasiN_749',
+        userTypeId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        fullName: 'Veli',
+        email: 'veli.749@gmail.com',
+        password: 'yasiN_749',
+        userTypeId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        fullName: 'Gökhan',
+        email: 'gokhan.749@gmail.com',
+        password: 'yasiN_749',
+        userTypeId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        fullName: 'Hakan',
+        email: 'hakan.749@gmail.com',
+        password: 'yasiN_749',
+        userTypeId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
   },
 

@@ -27,10 +27,25 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
+    status: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1
+    },
   }, {
     sequelize,
     modelName: 'User',
+    defaultScope: {
+      where: {
+        status: 1,
+      },
+      attributes: {
+        exclude: ['password', 'createdAt', 'updatedAt']
+      },
+      order: [
+        ['id', 'DESC'],
+      ],
+    },
   });
   return User;
 };

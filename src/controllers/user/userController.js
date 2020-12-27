@@ -17,10 +17,7 @@ module.exports = {
             limit: CONSTANTS.PER_PAGE,
             include: {
                 model: database.models.UserType,
-            },
-            order: [
-                ['id', 'DESC'],
-            ],
+            }
         });
 
         if(users.length){
