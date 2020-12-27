@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       models.User.belongsTo(models.UserType, {
         onDelete: "CASCADE",
         foreignKey: 'userTypeId',
+        as: 'userType',
       });
       models.User.hasMany(models.Comment);
     }
