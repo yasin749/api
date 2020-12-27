@@ -43,3 +43,9 @@ https://medium.com/@andrewoons/how-to-define-sequelize-associations-using-migrat
 https://codewithhugo.com/using-es6-classes-for-sequelize-4-models/
 
 express kaldırılmalı
+
+
+belongstomany ilişkilerde model oluşturulmalı ve mode string olmadan verilmeli
+
+scopes lar ile active olanlar ve seçimi kolaylaşabilir
+exclude ile istenmeyen alanlar silinebilir(created at, updated at gibi)

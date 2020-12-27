@@ -15,6 +15,9 @@ module.exports = {
         const users = await database.models.User.findAll({
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
+            include: {
+                model: database.models.UserType,
+            },
             order: [
                 ['id', 'DESC'],
             ],

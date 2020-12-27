@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.User.belongsTo(models.UserType, {
         onDelete: "CASCADE",
+        foreignKey: 'userTypeId',
       });
       models.User.hasMany(models.Comment);
     }
@@ -26,11 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    userTypeId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    }
   }, {
     sequelize,
     modelName: 'User',
