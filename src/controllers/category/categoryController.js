@@ -16,10 +16,10 @@ module.exports = {
             where: {status: 1},
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
-            order: [
-                ['sort', 'DESC'],
-                ['id', 'DESC'],
-            ],
+            include: {
+                model: database.models.Product,
+                as: 'products',
+            }
         });
 
         if (users.length) {

@@ -47,5 +47,5 @@ express kaldırılmalı
 
 belongstomany ilişkilerde model oluşturulmalı ve mode string olmadan verilmeli
 
-scopes lar ile active olanlar ve seçimi kolaylaşabilir
-exclude ile istenmeyen alanlar silinebilir(created at, updated at gibi)
+
+

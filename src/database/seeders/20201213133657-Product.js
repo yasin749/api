@@ -27,6 +27,18 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        categoryId: 3,
+        name: 'Xiaomi T10',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        categoryId: 3,
+        name: 'Xiaomi POCO X3',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
   },
 

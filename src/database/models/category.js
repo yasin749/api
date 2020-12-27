@@ -5,7 +5,10 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
     static associate(models) {
-      models.Category.hasMany(models.Product);
+      models.Category.hasMany(models.Product, {
+        foreignKey: 'categoryId',
+        as: 'products',
+      });
     }
   };
   Category.init({
@@ -32,6 +35,18 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Category',
+    defaultScope: {
+      where: {
+        status: 1,
+      },
+      attributes: {
+        exclude: ['createdAt', 'updatedAt']
+      },
+      order: [
+        ['sort', 'DESC'],
+        ['id', 'DESC'],
+      ],
+    },
   });
   return Category;
 };

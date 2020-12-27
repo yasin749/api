@@ -12,7 +12,12 @@ module.exports = {
         name: 'Samsung',
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },
+      {
+        name: 'Xiaomi',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
   },
 

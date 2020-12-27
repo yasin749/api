@@ -7,15 +7,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Product.belongsTo(models.Category, {
         onDelete: "CASCADE",
+        foreignKey: 'id',
+        as: 'category',
       });
       models.Product.hasMany(models.Comment);
     }
   };
   Product.init({
-    categoryId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -35,6 +33,18 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Product',
+    defaultScope: {
+      where: {
+        status: 1,
+      },
+      attributes: {
+        exclude: ['createdAt', 'updatedAt']
+      },
+      order: [
+        ['sort', 'DESC'],
+        ['id', 'DESC'],
+      ],
+    },
   });
   return Product;
 };
