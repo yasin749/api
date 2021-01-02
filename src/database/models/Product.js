@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'productId',
         as: 'comments',
       });
+      models.Product.belongsTo(models.EvaluationGroup, {
+        onDelete: "CASCADE",
+        foreignKey: 'evaluationGroupId',
+        as: 'evaluationGroup',
+      });
     }
   };
   Product.init({

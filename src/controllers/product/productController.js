@@ -27,7 +27,18 @@ module.exports = {
                     model: database.models.Comment,
                     as: 'comments',
                     required: false,
-                }
+                },
+                {
+                    model: database.models.EvaluationGroup,
+                    as: 'evaluationGroup',
+                    include: {
+                        model: database.models.EvaluationAttribute,
+                        as: 'evaluationAttributes',
+                        through: {
+                            attributes: []
+                        }
+                    }
+                },
             ],
             order: [
                 ['sort', 'DESC'],
