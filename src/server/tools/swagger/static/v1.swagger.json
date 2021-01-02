@@ -14,31 +14,29 @@
     }
   },
   "_host": "petstore.swagger.io",
-  "_basePath": "/v2",
-  "_tags": [
+  "basePath": "/api/v1/",
+  "tags": [
     {
-      "name": "user"
+      "name": "User"
+    },
+    {
+      "name": "Category"
+    },
+    {
+      "name": "Product"
+    },
+    {
+      "name": "Comment"
+    },
+    {
+      "name": "Evaluation Group"
     }
   ],
-  "schemes": [
+  "_schemes": [
     "http"
   ],
-  "definitions": {
-    "User": {
-      "type": "object"
-    },
-    "Category": {
-      "type": "object"
-    },
-    "Product": {
-      "type": "object"
-    },
-    "Comment": {
-      "type": "object"
-    }
-  },
   "paths": {
-    "/api/v1/user/page/{page}": {
+    "/user/page/{page}": {
       "get": {
         "tags": [
           "User"
@@ -59,7 +57,7 @@
         }
       }
     },
-    "/api/v1/category/page/{page}": {
+    "/category/page/{page}": {
       "get": {
         "tags": [
           "Category"
@@ -80,7 +78,7 @@
         }
       }
     },
-    "/api/v1/product/categoryId/{categoryId}/page/{page}": {
+    "/product/categoryId/{categoryId}/page/{page}": {
       "get": {
         "tags": [
           "Product"
@@ -108,7 +106,7 @@
         }
       }
     },
-    "/api/v1/comment/productId/{productId}/page/{page}": {
+    "/comment/productId/{productId}/page/{page}": {
       "get": {
         "tags": [
           "Comment"
@@ -135,9 +133,35 @@
           }
         }
       }
+    },
+    "/evaluation/group/page/{page}": {
+      "get": {
+        "tags": [
+          "Evaluation Group"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
     }
   },
-  "securityDefinitions": {
+  "_definitions": {
+    "User": {
+      "type": "object"
+    }
+  },
+  "_securityDefinitions": {
     "api_key": {
       "type": "apiKey",
       "name": "api_key",
