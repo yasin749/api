@@ -15,7 +15,7 @@ module.exports = {
         const productId = parseInt(req.params.productId) || 1;
 
         const comments = await database.models.Comment.findAll({
-            where: {status: 1, productId: productId},
+            where: {productId: productId},
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
             order: [

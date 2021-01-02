@@ -15,9 +15,13 @@ module.exports = {
         const categoryId = parseInt(req.params.categoryId) || 1;
 
         const products = await database.models.Product.findAll({
-            where: {status: 1, categoryId: categoryId},
+            where: {categoryId: categoryId},
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
+            include: {
+                model: database.models.Category,
+                as: 'category',
+            },
             order: [
                 ['sort', 'DESC'],
                 ['id', 'DESC'],

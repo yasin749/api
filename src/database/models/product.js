@@ -7,10 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Product.belongsTo(models.Category, {
         onDelete: "CASCADE",
-        foreignKey: 'id',
+        foreignKey: 'categoryId',
         as: 'category',
       });
-      models.Product.hasMany(models.Comment);
+      // models.Product.hasMany(models.Comment);
     }
   };
   Product.init({

@@ -13,7 +13,6 @@ module.exports = {
         const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
         const users = await database.models.Category.findAll({
-            where: {status: 1},
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
             include: {

@@ -13,7 +13,6 @@ module.exports = {
         const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
         const evaluationGroups = await database.models.EvaluationGroup.findAll({
-            where: {status: 1},
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
             order: [
