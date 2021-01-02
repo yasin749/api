@@ -18,6 +18,11 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        name: 'Beyaz Eşya',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
   },
 

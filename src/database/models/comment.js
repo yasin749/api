@@ -33,6 +33,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Comment',
+    defaultScope: {
+      where: {
+        status: 1,
+      },
+      order: [
+        ['id', 'DESC'],
+      ],
+    },
   });
   return Comment;
 };

@@ -22,15 +22,15 @@ module.exports = {
                 },
                 {
                     model: database.models.Comment,
-                    as: 'comments'
+                    as: 'comments',
+                    required: false,
                 }
             ],
         });
 
-        if(users.length){
+        if (users.length) {
             response.ok(res, users);
-        }
-        else{
+        } else {
             response.error(res);
         }
     }

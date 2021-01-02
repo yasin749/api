@@ -15,8 +15,14 @@ module.exports = {
         const evaluationGroups = await database.models.EvaluationGroup.findAll({
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
-            order: [
-                ['id', 'DESC'],
+            include: [
+                {
+                    model: database.models.EvaluationAttribute,
+                    as: 'evaluationAttributes',
+                    through: {
+                        attributes: []
+                    }
+                }
             ],
         });
 

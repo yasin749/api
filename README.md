@@ -45,7 +45,5 @@ https://codewithhugo.com/using-es6-classes-for-sequelize-4-models/
 express kaldırılmalı
 
 
-belongstomany ilişkilerde model oluşturulmalı ve mode string olmadan verilmeli
-
 
 

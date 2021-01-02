@@ -25,7 +25,8 @@ module.exports = {
                 },
                 {
                     model: database.models.Comment,
-                    as: 'comments'
+                    as: 'comments',
+                    required: false,
                 }
             ],
             order: [

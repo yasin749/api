@@ -18,6 +18,7 @@ module.exports = {
             include: {
                 model: database.models.Product,
                 as: 'products',
+                required: false,
             }
         });
 

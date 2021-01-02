@@ -15,6 +15,16 @@ module.exports = {
       {
         name: 'Ergonomi',
       },
+
+      {
+        name: 'Boyut',
+      },
+      {
+        name: 'Soğutma',
+      },
+      {
+        name: 'Enerji Tasarrufu',
+      },
     ]);
   },
 

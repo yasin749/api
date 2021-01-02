@@ -5,6 +5,9 @@ module.exports = {
     await queryInterface.bulkInsert('EvaluationGroups', [
       {
         name: 'Akıllı Telefon(EG)',
+      },
+      {
+        name: 'Beyaz Eşya(EG)',
       }
     ]);
   },

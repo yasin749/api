@@ -19,6 +19,19 @@ module.exports = {
         evaluationGroupId: 1,
         evaluationAttributeId: 4,
       },
+
+      {
+        evaluationGroupId: 2,
+        evaluationAttributeId: 5,
+      },
+      {
+        evaluationGroupId: 2,
+        evaluationAttributeId: 6,
+      },
+      {
+        evaluationGroupId: 2,
+        evaluationAttributeId: 7,
+      },
     ]);
   },
 
