@@ -24,6 +24,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       },
+      evaluationGroupId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'EvaluationGroups',
+          key: 'id',
+        },
+      },
       sort: {
         type: Sequelize.INTEGER,
         defaultValue: 1
