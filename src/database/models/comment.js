@@ -7,21 +7,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Comment.belongsTo(models.Product, {
         onDelete: "CASCADE",
+        foreignKey: 'productId',
+        as: 'product',
       });
       models.Comment.belongsTo(models.User, {
         onDelete: "CASCADE",
+        foreignKey: 'userId',
+        as: 'user',
       });
     }
   };
   Comment.init({
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    productId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     body: {
       type: DataTypes.STRING,
       allowNull: false,

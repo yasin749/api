@@ -18,6 +18,16 @@ module.exports = {
             where: {productId: productId},
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
+            include: [
+                {
+                    model: database.models.Product,
+                    as: 'product',
+                },
+                {
+                    model: database.models.User,
+                    as: 'user',
+                }
+            ],
             order: [
                 ['id', 'DESC'],
             ],

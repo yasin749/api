@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'categoryId',
         as: 'category',
       });
-      // models.Product.hasMany(models.Comment);
+      models.Product.hasMany(models.Comment, {
+        foreignKey: 'productId',
+        as: 'comments',
+      });
     }
   };
   Product.init({

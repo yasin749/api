@@ -15,10 +15,16 @@ module.exports = {
         const users = await database.models.User.findAll({
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
-            include: {
-                model: database.models.UserType,
-                as: 'userType',
-            }
+            include: [
+                {
+                    model: database.models.UserType,
+                    as: 'userType',
+                },
+                {
+                    model: database.models.Comment,
+                    as: 'comments'
+                }
+            ],
         });
 
         if(users.length){

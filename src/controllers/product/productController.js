@@ -18,10 +18,16 @@ module.exports = {
             where: {categoryId: categoryId},
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
-            include: {
-                model: database.models.Category,
-                as: 'category',
-            },
+            include: [
+                {
+                    model: database.models.Category,
+                    as: 'category',
+                },
+                {
+                    model: database.models.Comment,
+                    as: 'comments'
+                }
+            ],
             order: [
                 ['sort', 'DESC'],
                 ['id', 'DESC'],
