@@ -38,11 +38,6 @@ module.exports = {
                 {
                     model: database.models.UserType,
                     as: 'userType',
-                },
-                {
-                    model: database.models.Comment,
-                    as: 'comments',
-                    required: false,
                 }
             ],
         });

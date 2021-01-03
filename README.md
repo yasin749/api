@@ -50,11 +50,14 @@ user -> users with user types
 user/userId -> users detail
 
 category/page -> all categories
-category/categoryId/products -> category with products
+category/categoryId -> category detail
 
-product/productId -> product with(comments and evulations optional)
+product/productId -> product detail
 
-comment/page -> all comments
+comment -> all comments
+comment/commentId -> comment detail
+comment/user/userId
+comment/product/productId -> product comments
 
 evaluation/group/ -> all evaluation groups
 evaluation/group/groupId/attributes

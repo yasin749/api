@@ -8,25 +8,15 @@ var CONSTANTS = require('./productConstants');
 var response = require('../../response/response');
 
 module.exports = {
-    categoryProducts: async function (req, res, next) {
-        const page = parseInt(req.params.page) || 1;
-        const offset = (page - 1) * CONSTANTS.PER_PAGE;
+    productDetail: async function (req, res, next) {
+        const productId = parseInt(req.params.productId);
 
-        const categoryId = parseInt(req.params.categoryId) || 1;
-
-        const products = await database.models.Product.findAll({
-            where: {categoryId: categoryId},
-            offset: offset,
-            limit: CONSTANTS.PER_PAGE,
+        const product = await database.models.Product.findOne({
+            where: {id: productId},
             include: [
                 {
                     model: database.models.Category,
                     as: 'category',
-                },
-                {
-                    model: database.models.Comment,
-                    as: 'comments',
-                    required: false,
                 },
                 {
                     model: database.models.EvaluationGroup,
@@ -39,15 +29,11 @@ module.exports = {
                         }
                     }
                 },
-            ],
-            order: [
-                ['sort', 'DESC'],
-                ['id', 'DESC'],
-            ],
+            ]
         });
 
-        if (products.length) {
-            response.ok(res, products);
+        if (product) {
+            response.ok(res, product);
         } else {
             response.error(res);
         }

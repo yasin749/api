@@ -127,23 +127,16 @@
         }
       }
     },
-    "/product/categoryId/{categoryId}/page/{page}": {
+    "/product/{productId}": {
       "get": {
         "tags": [
           "Product"
         ],
         "parameters": [
           {
-            "name": "categoryId",
+            "name": "productId",
             "in": "path",
             "required": true,
-            "type": "integer",
-            "default": 1
-          },
-          {
-            "name": "page",
-            "in": "path",
-            "required": false,
             "type": "integer",
             "default": 1
           }
