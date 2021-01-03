@@ -38,6 +38,7 @@ Please specify a command
 TODO LIST
 sequelize tekrardan okunmalı
 pagination mapper
+defaultscope üzerinden include yapılabilmeli
 
 https://medium.com/@andrewoons/how-to-define-sequelize-associations-using-migrations-de4333bf75a7
 https://codewithhugo.com/using-es6-classes-for-sequelize-4-models/
@@ -45,5 +46,17 @@ https://codewithhugo.com/using-es6-classes-for-sequelize-4-models/
 express kaldırılmalı
 
 
+user -> users with user types
+user/userId -> users detail
+
+category/page -> all categories
+category/categoryId/products -> category with products
+
+product/productId -> product with(comments and evulations optional)
+
+comment/page -> all comments
+
+evaluation/group/ -> all evaluation groups
+evaluation/group/groupId/attributes
 
 
