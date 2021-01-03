@@ -2,5 +2,6 @@
 const categoryController = require('../controllers/category/categoryController');
 
 module.exports = function (router) {
-    router.all('/category/page/:page?', categoryController.index);
+    router.all('/category', categoryController.categories);
+    router.all('/category/:categoryId', categoryController.categoryDetail);
 };

@@ -8,22 +8,40 @@ var CONSTANTS = require('./categoryConstants');
 var response = require('../../response/response');
 
 module.exports = {
-    index: async function (req, res, next) {
-        const page = parseInt(req.params.page) || 1;
+    categories: async function (req, res, next) {
+        const page = parseInt(req.query.page) || 1;
         const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
-        const users = await database.models.Category.findAll({
+        const categories = await database.models.Category.findAll({
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
+        });
+
+        if (categories.length) {
+            response.ok(res, categories);
+        } else {
+            response.error(res);
+        }
+    },
+    categoryDetail: async function (req, res, next) {
+        const categoryId = parseInt(req.params.categoryId);
+
+        const page = parseInt(req.query.page) || 1;
+        const offset = (page - 1) * CONSTANTS.PER_PAGE;
+
+        const category = await database.models.Category.findOne({
+            where: {id: categoryId},
             include: {
                 model: database.models.Product,
                 as: 'products',
                 required: false,
+                offset: offset,
+                limit: CONSTANTS.PER_PAGE,
             }
         });
 
-        if (users.length) {
-            response.ok(res, users);
+        if (category) {
+            response.ok(res, category);
         } else {
             response.error(res);
         }

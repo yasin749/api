@@ -8,7 +8,7 @@ var CONSTANTS = require('./userConstants');
 var response = require('../../response/response');
 
 module.exports = {
-    index: async function (req, res, next) {
+    users: async function (req, res, next) {
         const page = parseInt(req.query.page) || 1;
         const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
