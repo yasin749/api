@@ -4,7 +4,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Comments', [
       {
-        userId: 2,
+        userId: 1,
         productId: 1,
         body: 'Iphone 12 harika bir telefon',
         glad: 1,
@@ -12,7 +12,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        userId: 2,
+        userId: 1,
         productId: 1,
         body: 'Iphone 12 nin şarj ı çok uzun süre dayanıyor',
         glad: 1,
