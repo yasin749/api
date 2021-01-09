@@ -60,6 +60,6 @@ comment/user/userId
 comment/product/productId -> product comments
 
 evaluation/group/ -> all evaluation groups
-evaluation/group/groupId/attributes
+evaluation/group/groupId -> evaluation group detail
 
 

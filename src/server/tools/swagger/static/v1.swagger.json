@@ -246,7 +246,7 @@
         }
       }
     },
-    "/evaluation/group/page/{page}": {
+    "/evaluation/group": {
       "get": {
         "tags": [
           "Evaluation Group"
@@ -254,6 +254,27 @@
         "parameters": [
           {
             "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/evaluation/group/{groupId}": {
+      "get": {
+        "tags": [
+          "Evaluation Group"
+        ],
+        "parameters": [
+          {
+            "name": "groupId",
             "in": "path",
             "required": false,
             "type": "integer",
