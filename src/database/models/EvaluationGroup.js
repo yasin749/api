@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     status: {
-      type: DataTypes.INTEGER,
-      defaultValue: 1,
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   }, {
     sequelize,
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
     defaultScope: {
       where: {
-        status: 1,
+        status: true,
       },
       order: [
         ['id', 'DESC'],

@@ -29,15 +29,15 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 1
     },
     status: {
-      type: DataTypes.INTEGER,
-      defaultValue: 1
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     },
   }, {
     sequelize,
     modelName: 'Category',
     defaultScope: {
       where: {
-        status: 1,
+        status: true,
       },
       attributes: {
         exclude: ['createdAt', 'updatedAt']

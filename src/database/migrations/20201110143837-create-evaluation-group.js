@@ -13,8 +13,8 @@ module.exports = {
         allowNull: false,
       },
       status: {
-        type: Sequelize.INTEGER,
-        defaultValue: 1,
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
       },
     });
   },

@@ -33,15 +33,15 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     status: {
-      type: DataTypes.INTEGER,
-      defaultValue: 1
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     },
   }, {
     sequelize,
     modelName: 'User',
     defaultScope: {
       where: {
-        status: 1,
+        status: true,
       },
       attributes: {
         exclude: ['password', 'createdAt', 'updatedAt']
