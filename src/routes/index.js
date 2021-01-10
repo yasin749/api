@@ -7,6 +7,7 @@ require('../routes/user')(router);
 require('../routes/category')(router);
 require('../routes/product')(router);
 require('../routes/comment')(router);
+require('../routes/evaluationGroup')(router);
 require('../routes/evaluation')(router);
 
 module.exports = router;
