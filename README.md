@@ -45,6 +45,8 @@ https://codewithhugo.com/using-es6-classes-for-sequelize-4-models/
 
 express kaldırılmalı
 
+kullanıcı yorularım ve kullanıcı değerlendirmelerinde ürün bazlı gruplama
+
 
 user -> users with user types
 user/userId -> users detail
@@ -62,4 +64,9 @@ comment/product/productId -> product comments
 evaluation/group/ -> all evaluation groups
 evaluation/group/groupId -> evaluation group detail
 
+evaluation/ -> all evaluations
+evaluation/evaluationId -> all evaluation detail
+evaluation/user/userId -> user evaluations
+evaluation/product/productId -> product evaluations
+ 
 
