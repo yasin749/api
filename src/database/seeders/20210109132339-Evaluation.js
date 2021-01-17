@@ -15,7 +15,56 @@ module.exports = {
         userId: 1,
         productId: 1,
         evaluationAttributeId: 2,
-        evaluation: 0,
+        evaluation: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 1,
+        productId: 1,
+        evaluationAttributeId: 3,
+        evaluation: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 1,
+        productId: 1,
+        evaluationAttributeId: 4,
+        evaluation: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      {
+        userId: 2,
+        productId: 1,
+        evaluationAttributeId: 1,
+        evaluation: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 2,
+        productId: 1,
+        evaluationAttributeId: 2,
+        evaluation: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 2,
+        productId: 1,
+        evaluationAttributeId: 3,
+        evaluation: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 2,
+        productId: 1,
+        evaluationAttributeId: 4,
+        evaluation: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
