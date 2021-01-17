@@ -36,10 +36,6 @@ module.exports = {
                         attributes: []
                     }
                 },
-                /*{
-                    model: database.models.Product,
-                    as: 'products',
-                }*/
             ],
         });
 

@@ -8,6 +8,10 @@ module.exports = {
     productDetail: async function (req, res, next) {
         const productId = parseInt(req.params.productId);
 
+        const getEvaluationCountQuery = function (value) {
+            return `COUNT(case "evaluationGroup->evaluationAttributes->evaluations"."evaluation" when ${value} then 1 else null end)`
+        }
+
         const product = await database.models.Product.findOne({
             where: {id: productId},
             include: [
@@ -24,15 +28,11 @@ module.exports = {
                         attributes: {
                             include: [
                                 [
-                                    database.literal(
-                                        `COUNT(case "evaluationGroup->evaluationAttributes->evaluations"."evaluation" when 1 then 1 else null end)`
-                                    ),
+                                    database.literal(getEvaluationCountQuery(1)),
                                     'upVote'
                                 ],
                                 [
-                                    database.literal(
-                                        `COUNT(case "evaluationGroup->evaluationAttributes->evaluations"."evaluation" when 0 then 1 else null end)`
-                                    ),
+                                    database.literal(getEvaluationCountQuery(0)),
                                     'downVote'
                                 ],
                             ]
