@@ -52,25 +52,4 @@ express kaldırılmalı
 kullanıcı yorularım ve kullanıcı değerlendirmelerinde ürün bazlı gruplama
 
 
-user -> users with user types
-user/userId -> users detail
-
-category/page -> all categories
-category/categoryId -> category detail
-
-product/productId -> product detail
-
-comment -> all comments
-comment/commentId -> comment detail
-comment/user/userId
-comment/product/productId -> product comments
-
-evaluation/group/ -> all evaluation groups
-evaluation/group/groupId -> evaluation group detail
-
-evaluation/ -> all evaluations
-evaluation/evaluationId -> all evaluation detail
-evaluation/user/userId -> user evaluations
-evaluation/product/productId -> product evaluations
- 
 
