@@ -44,6 +44,8 @@ global hook lar oluşturulmalı
 db index i
 yorulmar validate edilmeli
 
+image ve gallery detaylarında da sayfalama olmalı
+
 https://medium.com/@andrewoons/how-to-define-sequelize-associations-using-migrations-de4333bf75a7
 https://codewithhugo.com/using-es6-classes-for-sequelize-4-models/
 
