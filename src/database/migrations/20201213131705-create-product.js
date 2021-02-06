@@ -16,6 +16,22 @@ module.exports = {
           key: 'id',
         },
       },
+      coverGalleryId: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'Galleries',
+          key: 'id',
+        },
+      },
+      contentGalleryId: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'Galleries',
+          key: 'id',
+        },
+      },
       name: {
         type: Sequelize.STRING,
         allowNull: false,

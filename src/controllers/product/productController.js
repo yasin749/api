@@ -20,6 +20,34 @@ module.exports = {
                     as: 'category',
                 },
                 {
+                    model: database.models.Gallery,
+                    as: 'coverGallery',
+                    include: [
+                        {
+                            model: database.models.Image,
+                            as: 'images',
+                            through: {
+                                attributes: []
+                            }
+                        },
+                    ],
+                    required: false,
+                },
+                {
+                    model: database.models.Gallery,
+                    as: 'contentGallery',
+                    include: [
+                        {
+                            model: database.models.Image,
+                            as: 'images',
+                            through: {
+                                attributes: []
+                            }
+                        },
+                    ],
+                    required: false,
+                },
+                {
                     model: database.models.EvaluationGroup,
                     as: 'evaluationGroup',
                     include: {
@@ -53,6 +81,10 @@ module.exports = {
             group: [
                 'Product.id',
                 'category.id',
+                'coverGallery.id',
+                'coverGallery->images.id',
+                'contentGallery.id',
+                'contentGallery->images.id',
                 'evaluationGroup.id',
                 'evaluationGroup->evaluationAttributes.id'
             ],

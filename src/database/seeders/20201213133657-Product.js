@@ -5,6 +5,8 @@ module.exports = {
     await queryInterface.bulkInsert('Products', [
       {
         categoryId: 1,
+        coverGalleryId: 1,
+        contentGalleryId: 2,
         name: 'Iphone 12',
         evaluationGroupId: 1,
         createdAt: new Date(),
@@ -12,6 +14,8 @@ module.exports = {
       },
       {
         categoryId: 1,
+        coverGalleryId: 3,
+        contentGalleryId: 4,
         name: 'Iphone 12 Mini',
         evaluationGroupId: 1,
         createdAt: new Date(),
@@ -19,6 +23,8 @@ module.exports = {
       },
       {
         categoryId: 2,
+        coverGalleryId: 5,
+        contentGalleryId: 6,
         name: 'Galaxy S20',
         evaluationGroupId: 1,
         createdAt: new Date(),

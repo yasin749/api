@@ -9,12 +9,27 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        name: 'Iphone 12 content',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         name: 'Iphone 12 Mini cover',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
+        name: 'Iphone 12 Mini content',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         name: 'Galaxy S20 cover',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Galaxy S20 content',
         createdAt: new Date(),
         updatedAt: new Date()
       },

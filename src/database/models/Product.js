@@ -10,6 +10,16 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'categoryId',
         as: 'category',
       });
+      models.Product.belongsTo(models.Gallery, {
+        onDelete: "CASCADE",
+        foreignKey: 'coverGalleryId',
+        as: 'coverGallery',
+      });
+      models.Product.belongsTo(models.Gallery, {
+        onDelete: "CASCADE",
+        foreignKey: 'contentGalleryId',
+        as: 'contentGallery',
+      });
       models.Product.hasMany(models.Comment, {
         foreignKey: 'productId',
         as: 'comments',
