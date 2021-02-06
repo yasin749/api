@@ -28,6 +28,15 @@ module.exports = {
 
         const gallery = await database.models.Gallery.findOne({
             where: {id: galleryId},
+            include: [
+                {
+                    model: database.models.Image,
+                    as: 'images',
+                    through: {
+                        attributes: []
+                    }
+                },
+            ],
         });
 
         if (gallery) {
