@@ -1,4 +1,5 @@
 const {Sequelize, DataTypes} = require('sequelize');
+const Hooks = require('./hooks');
 
 /* Models */
 const models = require('./models');
@@ -8,6 +9,9 @@ const {databaseConfig} = require('../config');
 
 // Create sequelize instance
 let sequelize = new Sequelize(databaseConfig.database, databaseConfig.username, databaseConfig.password, databaseConfig);
+
+// Initialize database hooks
+Hooks.init(sequelize);
 
 // Sequelize authenticate
 sequelize
@@ -23,11 +27,5 @@ models.forEach(async model => {
     // @todo this is workaround
     createdModel.associate(sequelize.models);
 });
-
-// Sync all models (exist for development, use migrations on production)
-// @todo refactor sync key
-if (process.env.npm_config_sync) {
-    sequelize.sync();
-}
 
 module.exports = sequelize;

@@ -8,7 +8,6 @@
   },
   "scripts": {
     "start:dev": "nodemon --exec npm run start",
-    "start:sync": "npm run start --sync",
     "start": "node ./src/app.js",
     "serve": "npm run start --release",
     "sequelize": "sequelize",

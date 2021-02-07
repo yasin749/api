@@ -32,26 +32,23 @@ Options:
   --version  Show version number                                                  [boolean]
   --help     Show help                                                            [boolean]
 
-Please specify a command
+
 
 
 TODO LIST
-sequelize tekrardan okunmalı
 pagination mapper
 defaultscope üzerinden include yapılabilmeli
 getter setter araştırılmalı
-global hook lar oluşturulmalı
 db index i
 yorulmar validate edilmeli
 
 image ve gallery detaylarında da sayfalama olmalı
+image absolue path olarak iletilmeli
 
 https://medium.com/@andrewoons/how-to-define-sequelize-associations-using-migrations-de4333bf75a7
 https://codewithhugo.com/using-es6-classes-for-sequelize-4-models/
 
 express kaldırılmalı
-
-kullanıcı yorularım ve kullanıcı değerlendirmelerinde ürün bazlı gruplama
 
 
 
