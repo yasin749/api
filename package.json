@@ -11,9 +11,9 @@
     "start": "node ./src/app.js",
     "serve": "npm run start --release",
     "sequelize": "sequelize",
-    "sequelize:generate:model": "npm run sequelize model:generate -- --name TestModel --attributes firstAttr:string",
-    "sequelize:generate:migration": "npm run sequelize migration:generate -- --name TestMigration",
-    "sequelize:generate:seed": "npm run sequelize seed:generate -- --name TestSeed",
+    "sequelize:generate:model": "npm run sequelize model:generate -- --name UntitledModel --attributes firstAttr:string",
+    "sequelize:generate:migration": "npm run sequelize migration:generate -- --name UntitledMigration",
+    "sequelize:generate:seed": "npm run sequelize seed:generate -- --name UntitledSeed",
     "sequelize:db:rebuild": "npm run sequelize db:drop  &&  npm run sequelize db:create  &&  npm run sequelize db:migrate  &&  npm run sequelize db:seed:all"
   },
   "dependencies": {

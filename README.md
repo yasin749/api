@@ -52,3 +52,12 @@ express kaldırılmalı
 
 
 
+
+
+
+
+Kimin hangi ürünlerin kullanıcısı olduğu, kaç yıldır kullandığı ve deneyimlerini diğer insanlara aktarabildiği bir dünya
+firmalarda bu ürünleri kullanımı ile alakalı özel datalar edinebilmesi
+
+
+
