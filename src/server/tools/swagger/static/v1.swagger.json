@@ -120,6 +120,13 @@
             "required": false,
             "type": "integer",
             "default": 1
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "default": 1
           }
         ],
         "responses": {
@@ -159,6 +166,13 @@
           {
             "name": "galleryId",
             "in": "path",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "name": "page",
+            "in": "query",
             "required": false,
             "type": "integer",
             "default": 1

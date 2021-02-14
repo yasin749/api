@@ -9,9 +9,7 @@ TODO LIST
 express kaldırılmalı
 pagination mapper
 defaultscope üzerinden include yapılabilmeli
-yorulmar validate edilmeli
 
-image ve gallery detaylarında da sayfalama olmalı
 image absolue path olarak iletilmeli
 
 

@@ -26,8 +26,13 @@ module.exports = {
     imageDetail: async function (req, res, next) {
         const imageId = parseInt(req.params.imageId);
 
+        const page = parseInt(req.query.page) || 1;
+        const offset = (page - 1) * CONSTANTS.PER_PAGE;
+
         const image = await database.models.Image.findOne({
             where: {id: imageId},
+            offset: offset,
+            limit: CONSTANTS.PER_PAGE,
             include: [
                 {
                     model: database.models.Gallery,
