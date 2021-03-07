@@ -5,12 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class EvaluationGroup extends Model {
     static associate(models) {
-      models.EvaluationGroup.belongsToMany(models.EvaluationAttribute, {
+      this.belongsToMany(models.EvaluationAttribute, {
         through: models.EvaluationGroupRelation,
         foreignKey: 'evaluationGroupId',
         as: 'evaluationAttributes',
       });
-      models.EvaluationGroup.hasMany(models.Product, {
+      this.hasMany(models.Product, {
         foreignKey: 'evaluationGroupId',
         as: 'products',
       });

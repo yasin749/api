@@ -5,31 +5,31 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     static associate(models) {
-      models.Product.belongsTo(models.Category, {
+      this.belongsTo(models.Category, {
         onDelete: "CASCADE",
         foreignKey: 'categoryId',
         as: 'category',
       });
-      models.Product.belongsTo(models.Gallery, {
+      this.belongsTo(models.Gallery, {
         onDelete: "CASCADE",
         foreignKey: 'coverGalleryId',
         as: 'coverGallery',
       });
-      models.Product.belongsTo(models.Gallery, {
+      this.belongsTo(models.Gallery, {
         onDelete: "CASCADE",
         foreignKey: 'contentGalleryId',
         as: 'contentGallery',
       });
-      models.Product.hasMany(models.Comment, {
+      this.hasMany(models.Comment, {
         foreignKey: 'productId',
         as: 'comments',
       });
-      models.Product.belongsTo(models.EvaluationGroup, {
+      this.belongsTo(models.EvaluationGroup, {
         onDelete: "CASCADE",
         foreignKey: 'evaluationGroupId',
         as: 'evaluationGroup',
       });
-      models.Product.hasMany(models.Evaluation, {
+      this.hasMany(models.Evaluation, {
         foreignKey: 'productId',
         as: 'evaluations',
       });

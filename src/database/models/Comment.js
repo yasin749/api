@@ -5,12 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Comment extends Model {
     static associate(models) {
-      models.Comment.belongsTo(models.Product, {
+      this.belongsTo(models.Product, {
         onDelete: "CASCADE",
         foreignKey: 'productId',
         as: 'product',
       });
-      models.Comment.belongsTo(models.User, {
+      this.belongsTo(models.User, {
         onDelete: "CASCADE",
         foreignKey: 'userId',
         as: 'user',

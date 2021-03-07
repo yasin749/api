@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Gallery extends Model {
     static associate(models) {
-      models.Gallery.belongsToMany(models.Image, {
+      this.belongsToMany(models.Image, {
         through: models.GalleryRelation,
         foreignKey: 'galleryId',
         as: 'images',
