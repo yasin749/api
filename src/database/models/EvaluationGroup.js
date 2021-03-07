@@ -15,6 +15,16 @@ module.exports = (sequelize, DataTypes) => {
         as: 'products',
       });
     }
+    static scope(models) {
+      this.addScope('defaultScope', {
+        where: {
+          status: true,
+        },
+        order: [
+          ['id', 'DESC'],
+        ],
+      });
+    }
   };
   EvaluationGroup.init({
     name: {
@@ -29,14 +39,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'EvaluationGroup',
     timestamps: false,
-    defaultScope: {
-      where: {
-        status: true,
-      },
-      order: [
-        ['id', 'DESC'],
-      ],
-    },
   });
   return EvaluationGroup;
 };

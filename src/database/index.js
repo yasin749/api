@@ -25,7 +25,12 @@ models.forEach(async model => {
     var createdModel = await model(sequelize, DataTypes);
 
     // @todo this is workaround
-    createdModel.associate(sequelize.models);
+    if(createdModel.associate){
+        createdModel.associate(sequelize.models);
+    }
+    if(createdModel.scope){
+        createdModel.scope(sequelize.models);
+    }
 });
 
 module.exports = sequelize;

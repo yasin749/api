@@ -10,6 +10,20 @@ module.exports = (sequelize, DataTypes) => {
         as: 'products',
       });
     }
+    static scope(models) {
+      this.addScope('defaultScope', {
+        where: {
+          status: true,
+        },
+        attributes: {
+          exclude: ['createdAt', 'updatedAt']
+        },
+        order: [
+          ['sort', 'DESC'],
+          ['id', 'DESC'],
+        ],
+      });
+    }
   };
   Category.init({
     parentId: {
@@ -35,18 +49,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Category',
-    defaultScope: {
-      where: {
-        status: true,
-      },
-      attributes: {
-        exclude: ['createdAt', 'updatedAt']
-      },
-      order: [
-        ['sort', 'DESC'],
-        ['id', 'DESC'],
-      ],
-    },
   });
   return Category;
 };

@@ -16,6 +16,16 @@ module.exports = (sequelize, DataTypes) => {
         as: 'user',
       });
     }
+    static scope(models) {
+      this.addScope('defaultScope', {
+        where: {
+          status: true,
+        },
+        order: [
+          ['id', 'DESC'],
+        ],
+      });
+    }
   };
   Comment.init({
     body: {
@@ -33,14 +43,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Comment',
-    defaultScope: {
-      where: {
-        status: true,
-      },
-      order: [
-        ['id', 'DESC'],
-      ],
-    },
   });
   return Comment;
 };

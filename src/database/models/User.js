@@ -17,6 +17,26 @@ module.exports = (sequelize, DataTypes) => {
         as: 'evaluations',
       });
     }
+
+    static scope(models) {
+      this.addScope('defaultScope', {
+        where: {
+          status: true,
+        },
+        include: [
+          {
+            model: models.UserType,
+            as: 'userType',
+          }
+        ],
+        attributes: {
+          exclude: ['password', 'createdAt', 'updatedAt']
+        },
+        order: [
+          ['id', 'DESC'],
+        ],
+      });
+    }
   };
   User.init({
     fullName: {
@@ -43,17 +63,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
-    defaultScope: {
-      where: {
-        status: true,
-      },
-      attributes: {
-        exclude: ['password', 'createdAt', 'updatedAt']
-      },
-      order: [
-        ['id', 'DESC'],
-      ],
-    },
   });
   return User;
 };

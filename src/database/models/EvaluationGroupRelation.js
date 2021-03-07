@@ -4,11 +4,9 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class EvaluationGroupRelation extends Model {
-    static associate(models) {
-    }
+    static associate(models) {}
   };
-  EvaluationGroupRelation.init({
-  }, {
+  EvaluationGroupRelation.init({}, {
     sequelize,
     modelName: 'EvaluationGroupRelation',
     timestamps: false,

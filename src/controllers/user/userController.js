@@ -15,12 +15,6 @@ module.exports = {
         const users = await database.models.User.findAll({
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
-            include: [
-                {
-                    model: database.models.UserType,
-                    as: 'userType',
-                }
-            ],
         });
 
         if (users.length) {
@@ -34,12 +28,6 @@ module.exports = {
 
         const user = await database.models.User.findOne({
             where: {id: userId},
-            include: [
-                {
-                    model: database.models.UserType,
-                    as: 'userType',
-                }
-            ],
         });
 
         if (user) {

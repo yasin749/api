@@ -11,6 +11,19 @@ module.exports = (sequelize, DataTypes) => {
         as: 'galleries',
       });
     }
+    static scope(models) {
+      this.addScope('defaultScope', {
+        where: {
+          status: true,
+        },
+        attributes: {
+          exclude: ['createdAt', 'updatedAt']
+        },
+        order: [
+          ['id', 'DESC'],
+        ],
+      });
+    }
   };
   Image.init({
     path: {
@@ -24,17 +37,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Image',
-    defaultScope: {
-      where: {
-        status: true,
-      },
-      attributes: {
-        exclude: ['createdAt', 'updatedAt']
-      },
-      order: [
-        ['id', 'DESC'],
-      ],
-    },
   });
   return Image;
 };

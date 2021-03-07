@@ -21,6 +21,16 @@ module.exports = (sequelize, DataTypes) => {
         as: 'evaluationAttribute',
       });
     }
+    static scope(models) {
+      this.addScope('defaultScope', {
+        where: {
+          status: true,
+        },
+        order: [
+          ['id', 'DESC'],
+        ],
+      });
+    }
   };
   Evaluation.init({
     evaluation: {
@@ -34,14 +44,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Evaluation',
-    defaultScope: {
-      where: {
-        status: true,
-      },
-      order: [
-        ['id', 'DESC'],
-      ],
-    },
   });
   return Evaluation;
 };

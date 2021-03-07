@@ -34,6 +34,20 @@ module.exports = (sequelize, DataTypes) => {
         as: 'evaluations',
       });
     }
+    static scope(models) {
+      this.addScope('defaultScope', {
+        where: {
+          status: true,
+        },
+        attributes: {
+          exclude: ['createdAt', 'updatedAt']
+        },
+        order: [
+          ['sort', 'DESC'],
+          ['id', 'DESC'],
+        ],
+      });
+    }
   };
   Product.init({
     name: {
@@ -55,18 +69,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Product',
-    defaultScope: {
-      where: {
-        status: true,
-      },
-      attributes: {
-        exclude: ['createdAt', 'updatedAt']
-      },
-      order: [
-        ['sort', 'DESC'],
-        ['id', 'DESC'],
-      ],
-    },
   });
   return Product;
 };

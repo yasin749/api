@@ -8,6 +8,13 @@ module.exports = (sequelize, DataTypes) => {
         as: 'users',
       });
     }
+    static scope(models) {
+      this.addScope('defaultScope', {
+        attributes: {
+          exclude: ['createdAt', 'updatedAt'],
+        },
+      });
+    }
   };
   UserType.init({
     name: {
@@ -18,11 +25,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'UserType',
-    defaultScope: {
-      attributes: {
-        exclude: ['createdAt', 'updatedAt'],
-      },
-    },
   });
   return UserType;
 };
