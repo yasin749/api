@@ -7,6 +7,9 @@ var CONSTANTS = require('./imageConstants');
 /* Response */
 var response = require('../../response/response');
 
+/* Utils */
+var {imageFullPathUnifyer} = require('./imageUtils');
+
 module.exports = {
     images: async function (req, res, next) {
         const page = parseInt(req.query.page) || 1;
@@ -15,6 +18,11 @@ module.exports = {
         const images = await database.models.Image.findAll({
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
+            attributes: {
+                include:[
+                    imageFullPathUnifyer(database),
+                ],
+            },
         });
 
         if (images.length) {
@@ -33,6 +41,11 @@ module.exports = {
             where: {id: imageId},
             offset: offset,
             limit: CONSTANTS.PER_PAGE,
+            attributes: {
+                include:[
+                    imageFullPathUnifyer(database),
+                ],
+            },
             include: [
                 {
                     model: database.models.Gallery,

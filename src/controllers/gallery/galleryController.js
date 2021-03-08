@@ -7,6 +7,9 @@ var CONSTANTS = require('./galleryConstants');
 /* Response */
 var response = require('../../response/response');
 
+/* Utils */
+var {imageFullPathUnifyer} = require('./../image/imageUtils');
+
 module.exports = {
     galleries: async function (req, res, next) {
         const page = parseInt(req.query.page) || 1;
@@ -39,7 +42,12 @@ module.exports = {
                     as: 'images',
                     through: {
                         attributes: []
-                    }
+                    },
+                    attributes: {
+                        include:[
+                            imageFullPathUnifyer(database),
+                        ],
+                    },
                 },
             ],
         });

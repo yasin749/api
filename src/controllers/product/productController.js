@@ -4,6 +4,9 @@ var database = require("../../database");
 /* Response */
 var response = require('../../response/response');
 
+/* Utils */
+var {imageFullPathUnifyer} = require('./../image/imageUtils');
+
 module.exports = {
     productDetail: async function (req, res, next) {
         const productId = parseInt(req.params.productId);
@@ -28,7 +31,12 @@ module.exports = {
                             as: 'images',
                             through: {
                                 attributes: []
-                            }
+                            },
+                            attributes: {
+                                include:[
+                                    imageFullPathUnifyer(database, 'coverGallery.images.path'),
+                                ],
+                            },
                         },
                     ],
                     required: false,
@@ -42,7 +50,12 @@ module.exports = {
                             as: 'images',
                             through: {
                                 attributes: []
-                            }
+                            },
+                            attributes: {
+                                include:[
+                                    imageFullPathUnifyer(database, 'contentGallery.images.path'),
+                                ],
+                            },
                         },
                     ],
                     required: false,
