@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class EvaluationGroupRelation extends Model {
     static associate(models) {}
-  };
+  }
   EvaluationGroupRelation.init({}, {
     sequelize,
     modelName: 'EvaluationGroupRelation',

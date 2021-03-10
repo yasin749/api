@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         ],
       });
     }
-  };
+  }
   Gallery.init({
     name: {
       type: DataTypes.STRING,

@@ -1,5 +1,5 @@
 /* Databases */
-var database = require("../../database");
+var database = require('../../database');
 
 /* Constants */
 var CONSTANTS = require('./commentConstants');

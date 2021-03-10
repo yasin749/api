@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         ],
       });
     }
-  };
+  }
   Category.init({
     parentId: {
       type: DataTypes.INTEGER,

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       });
     }
-  };
+  }
   UserType.init({
     name: {
       type: DataTypes.STRING,

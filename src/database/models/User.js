@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       this.belongsTo(models.UserType, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
         foreignKey: 'userTypeId',
         as: 'userType',
       });
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
         ],
       });
     }
-  };
+  }
   User.init({
     fullName: {
       type: DataTypes.STRING,

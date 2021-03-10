@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         ],
       });
     }
-  };
+  }
   EvaluationAttribute.init({
     name: {
       type: DataTypes.STRING,

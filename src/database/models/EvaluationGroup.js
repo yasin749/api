@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         ],
       });
     }
-  };
+  }
   EvaluationGroup.init({
     name: {
       type: DataTypes.STRING,

@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         ],
       });
     }
-  };
+  }
   Image.init({
     path: {
       type: DataTypes.STRING,

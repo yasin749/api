@@ -6,17 +6,17 @@ module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     static associate(models) {
       this.belongsTo(models.Category, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
         foreignKey: 'categoryId',
         as: 'category',
       });
       this.belongsTo(models.Gallery, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
         foreignKey: 'coverGalleryId',
         as: 'coverGallery',
       });
       this.belongsTo(models.Gallery, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
         foreignKey: 'contentGalleryId',
         as: 'contentGallery',
       });
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'comments',
       });
       this.belongsTo(models.EvaluationGroup, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
         foreignKey: 'evaluationGroupId',
         as: 'evaluationGroup',
       });
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
         ],
       });
     }
-  };
+  }
   Product.init({
     name: {
       type: DataTypes.STRING,

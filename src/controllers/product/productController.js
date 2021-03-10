@@ -1,5 +1,5 @@
 /* Databases */
-var database = require("../../database");
+var database = require('../../database');
 
 /* Response */
 var response = require('../../response/response');

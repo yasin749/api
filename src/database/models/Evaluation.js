@@ -6,17 +6,17 @@ module.exports = (sequelize, DataTypes) => {
   class Evaluation extends Model {
     static associate(models) {
       this.belongsTo(models.User, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
         foreignKey: 'userId',
         as: 'user',
       });
       this.belongsTo(models.Product, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
         foreignKey: 'productId',
         as: 'product',
       });
       this.belongsTo(models.EvaluationAttribute, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE',
         foreignKey: 'evaluationAttributeId',
         as: 'evaluationAttribute',
       });
@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         ],
       });
     }
-  };
+  }
   Evaluation.init({
     evaluation: {
       type: DataTypes.INTEGER,
