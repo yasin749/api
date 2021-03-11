@@ -9,16 +9,19 @@ module.exports = {
         ecmaVersion: 7,
         sourceType: 'module',
     },
+    // https://eslint.org/docs/rules/
     rules: {
+        // Possible Errors
         // Best Practices
         'array-callback-return': ['error'],
         'block-scoped-var': ['error'],
         "eqeqeq": "error",
-        // Stylistic
+        // Strict Mode
+        // Variables
+        "no-unused-vars": ["error", { "vars": "local", "args": "none"}],
+        // Stylistic Issues
+        // ECMAScript 6
         'quotes': ['error', 'single'],
-
-        // @todo delete this
-        // 'no-unused-vars': 'off',
     },
     noInlineConfig: true,
     reportUnusedDisableDirectives: true,

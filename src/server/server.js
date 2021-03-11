@@ -3,9 +3,6 @@ var http = require('http');
 /* App */
 var app = require('./express/express');
 
-/* Swagger */
-var swagger = require('./tools/swagger/swagger');
-
 /* Utils */
 const {
     onError,
