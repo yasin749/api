@@ -38,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   User.init({
     fullName: {
       type: DataTypes.STRING,

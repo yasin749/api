@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'galleries',
       });
     }
+
     static scope(models) {
       this.addScope('defaultScope', {
         where: {
@@ -25,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   Image.init({
     path: {
       type: DataTypes.STRING,

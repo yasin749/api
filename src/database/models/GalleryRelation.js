@@ -4,8 +4,10 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class GalleryRelation extends Model {
-    static associate(models) {}
+    static associate(models) {
+    }
   }
+
   GalleryRelation.init({}, {
     sequelize,
     modelName: 'GalleryRelation',

@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'products',
       });
     }
+
     static scope(models) {
       this.addScope('defaultScope', {
         where: {
@@ -25,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   Category.init({
     parentId: {
       type: DataTypes.INTEGER,

@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'user',
       });
     }
+
     static scope(models) {
       this.addScope('defaultScope', {
         where: {
@@ -27,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   Comment.init({
     body: {
       type: DataTypes.STRING,

@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'evaluationAttribute',
       });
     }
+
     static scope(models) {
       this.addScope('defaultScope', {
         where: {
@@ -32,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   Evaluation.init({
     evaluation: {
       type: DataTypes.INTEGER,

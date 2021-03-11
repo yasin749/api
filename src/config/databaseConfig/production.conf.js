@@ -1,8 +1,8 @@
 module.exports = {
-    username: '',
-    password: '',
-    database: '',
-    host: '',
-    dialect: 'postgres',
-    sync: {},
+  username: '',
+  password: '',
+  database: '',
+  host: '',
+  dialect: 'postgres',
+  sync: {},
 };

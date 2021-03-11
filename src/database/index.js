@@ -15,22 +15,22 @@ Hooks.init(sequelize);
 
 // Sequelize authenticate
 sequelize
-    .authenticate()
-    .catch(err => {
-        console.error('Unable to connect to the database:', err);
-    });
+  .authenticate()
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 // Attach all models to sequelize
 models.forEach(async model => {
-    var createdModel = await model(sequelize, DataTypes);
+  const createdModel = await model(sequelize, DataTypes);
 
-    // @todo this is workaround
-    if(createdModel.associate){
-        createdModel.associate(sequelize.models);
-    }
-    if(createdModel.scope){
-        createdModel.scope(sequelize.models);
-    }
+  // @todo this is workaround
+  if (createdModel.associate) {
+    createdModel.associate(sequelize.models);
+  }
+  if (createdModel.scope) {
+    createdModel.scope(sequelize.models);
+  }
 });
 
 module.exports = sequelize;

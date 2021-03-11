@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'users',
       });
     }
+
     static scope(models) {
       this.addScope('defaultScope', {
         attributes: {
@@ -16,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   UserType.init({
     name: {
       type: DataTypes.STRING,

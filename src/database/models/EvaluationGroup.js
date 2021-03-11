@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'products',
       });
     }
+
     static scope(models) {
       this.addScope('defaultScope', {
         where: {
@@ -26,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   EvaluationGroup.init({
     name: {
       type: DataTypes.STRING,

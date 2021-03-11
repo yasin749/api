@@ -1,9 +1,9 @@
 module.exports = function (database) {
-    database.beforeSave(async (config) => {
+  database.beforeSave(async (config) => {
 
-    });
+  });
 
-    database.afterSave(async (config) => {
+  database.afterSave(async (config) => {
 
-    });
+  });
 }
