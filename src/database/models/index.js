@@ -1,11 +1,11 @@
 const {requireFilesFromDir} = require('../../file/fileUtils');
 
-let models = [];
+let models = {};
 
 requireFilesFromDir(__dirname, {
   excludedFileName: __filename,
-  afterImport: function (importedFile) {
-    models.push(importedFile);
+  afterImport: function (fileName, importedFile) {
+    models[fileName] = importedFile
   }
 });
 

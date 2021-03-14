@@ -5,7 +5,7 @@ const {requireFilesFromDir} = require('../file/fileUtils');
 
 requireFilesFromDir(__dirname, {
   excludedFileName: __filename,
-  afterImport: function (importedFile) {
+  afterImport: function (fileName, importedFile) {
     importedFile(router);
   }
 });

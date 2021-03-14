@@ -20,7 +20,8 @@ function requireFileList(dirname, fileList, afterImport) {
     const importedFile = require(path.join(dirname, file));
 
     if (afterImport) {
-      afterImport(importedFile);
+      const fileName = file.split('.')[0];
+      afterImport(fileName ,importedFile);
     }
   })
 }

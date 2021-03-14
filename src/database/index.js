@@ -21,15 +21,24 @@ sequelize
   });
 
 // Attach all models to sequelize
-models.forEach(async model => {
-  const createdModel = await model(sequelize, DataTypes);
+const loadedModels = Object.keys(models).reduce((allModels, modelName) => {
+  allModels[modelName] = models[modelName](sequelize, DataTypes);
+  return allModels;
+}, {});
 
-  // @todo this is workaround
-  if (createdModel.associate) {
-    createdModel.associate(sequelize.models);
+// Run associates
+Object.keys(loadedModels).map(modelName => {
+  const model = loadedModels[modelName];
+  if (model.associate) {
+    model.associate(sequelize.models);
   }
-  if (createdModel.scope) {
-    createdModel.scope(sequelize.models);
+});
+
+// Run scopes
+Object.keys(loadedModels).map(modelName => {
+  const model = loadedModels[modelName];
+  if (model.scope) {
+    model.scope(sequelize.models);
   }
 });
 
