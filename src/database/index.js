@@ -32,6 +32,7 @@ Object.keys(loadedModels).map(modelName => {
   if (model.associate) {
     model.associate(sequelize.models);
   }
+  return modelName;
 });
 
 // Run scopes
@@ -40,6 +41,7 @@ Object.keys(loadedModels).map(modelName => {
   if (model.scope) {
     model.scope(sequelize.models);
   }
+  return modelName;
 });
 
 module.exports = sequelize;
