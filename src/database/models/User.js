@@ -52,7 +52,6 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: true,
       },
     },
-    // @todo bcrypt
     password: {
       type: DataTypes.STRING,
       allowNull: false,

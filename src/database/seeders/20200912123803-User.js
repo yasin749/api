@@ -1,12 +1,18 @@
 'use strict';
+const bcrypt = require('bcrypt')
+
+const saltRounds = 10;
+const password = 'yasiN_749';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    const hashedPassword =  await bcrypt.hash(password, saltRounds);
+
     await queryInterface.bulkInsert('Users', [
       {
         fullName: 'Yasin UYSAL(A)',
         email: 'yasin_749@hotmail.com',
-        password: 'yasiN_749',
+        password: hashedPassword,
         userTypeId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -14,7 +20,7 @@ module.exports = {
       {
         fullName: 'Yasin UYSAL(M)',
         email: 'yasinuysal.749@gmail.com',
-        password: 'yasiN_749',
+        password: hashedPassword,
         userTypeId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -22,7 +28,7 @@ module.exports = {
       {
         fullName: 'Ali',
         email: 'ali.749@gmail.com',
-        password: 'yasiN_749',
+        password: hashedPassword,
         userTypeId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -30,7 +36,7 @@ module.exports = {
       {
         fullName: 'Ahmet',
         email: 'ahmet.749@gmail.com',
-        password: 'yasiN_749',
+        password: hashedPassword,
         userTypeId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -38,7 +44,7 @@ module.exports = {
       {
         fullName: 'Mehmet',
         email: 'mehmet.749@gmail.com',
-        password: 'yasiN_749',
+        password: hashedPassword,
         userTypeId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -46,7 +52,7 @@ module.exports = {
       {
         fullName: 'Veli',
         email: 'veli.749@gmail.com',
-        password: 'yasiN_749',
+        password: hashedPassword,
         userTypeId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -54,7 +60,7 @@ module.exports = {
       {
         fullName: 'Gökhan',
         email: 'gokhan.749@gmail.com',
-        password: 'yasiN_749',
+        password: hashedPassword,
         userTypeId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -62,7 +68,7 @@ module.exports = {
       {
         fullName: 'Hakan',
         email: 'hakan.749@gmail.com',
-        password: 'yasiN_749',
+        password: hashedPassword,
         userTypeId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
