@@ -9,10 +9,12 @@ module.exports = (sequelize, DataTypes) => {
         as: 'userType',
       });
       this.hasMany(models.Comment, {
+        onDelete: 'CASCADE',
         foreignKey: 'userId',
         as: 'comments',
       });
       this.hasMany(models.Evaluation, {
+        onDelete: 'CASCADE',
         foreignKey: 'userId',
         as: 'evaluations',
       });
@@ -52,6 +54,7 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: true,
       },
     },
+    // @todo password valitadion
     password: {
       type: DataTypes.STRING,
       allowNull: false,

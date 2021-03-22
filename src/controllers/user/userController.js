@@ -35,5 +35,44 @@ module.exports = {
     } else {
       response.error(res);
     }
-  }
+  },
+
+  addUser: async function (req, res, next) {
+    //@todo userTypeId
+    await database.models.User.create({
+      ...req.body,
+      userTypeId: 2,
+    }).then(user => {
+      response.ok(res);
+    }).catch(e => {
+      response.error(res, e.errors);
+    });
+  },
+  editUser: async function (req, res, next) {
+    const userId = parseInt(req.params.userId);
+
+    await database.models.User.update({
+      ...req.body,
+      userTypeId: 2,
+    }, {
+      where: {id: userId},
+    }).then(user => {
+      response.ok(res);
+    }).catch(e => {
+      response.error(res, e.errors);
+    });
+  },
+  deleteUser: async function (req, res, next) {
+    const userId = parseInt(req.params.userId);
+
+    // @todo should be soft delete
+    await database.models.User.destroy({
+      where: {id: userId},
+    }).then(user => {
+      response.ok(res);
+    }).catch(e => {
+      response.error(res, e.errors);
+    });
+  },
+
 };
