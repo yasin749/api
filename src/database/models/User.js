@@ -1,4 +1,7 @@
 const {Model} = require('sequelize');
+const bcrypt = require('bcrypt');
+
+const passwordSaltRounds = 10;
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -23,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     static scope(models) {
       this.addScope('defaultScope', {
         where: {
-          status: true,
+          // status: true,
         },
         include: [
           {
@@ -32,10 +35,11 @@ module.exports = (sequelize, DataTypes) => {
           }
         ],
         attributes: {
-          exclude: ['password', 'createdAt', 'updatedAt']
+          // exclude: ['password', 'createdAt', 'updatedAt']
+          exclude: ['password']
         },
         order: [
-          ['id', 'DESC'],
+          // ['id', 'DESC'],
         ],
       });
     }
@@ -45,6 +49,12 @@ module.exports = (sequelize, DataTypes) => {
     fullName: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [5, 30],
+      },
+      set(value) {
+        this.setDataValue('fullName', value.trim());
+      }
     },
     email: {
       type: DataTypes.STRING,
@@ -53,11 +63,19 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isEmail: true,
       },
+      set(value) {
+        this.setDataValue('email', value.trim());
+      }
     },
-    // @todo password valitadion
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [6],
+      },
+      set(value) {
+        this.setDataValue('password', bcrypt.hashSync(value, passwordSaltRounds));
+      }
     },
     status: {
       type: DataTypes.BOOLEAN,

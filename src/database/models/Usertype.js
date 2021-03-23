@@ -11,8 +11,11 @@ module.exports = (sequelize, DataTypes) => {
 
     static scope(models) {
       this.addScope('defaultScope', {
+        where: {
+          // status: true,
+        },
         attributes: {
-          exclude: ['createdAt', 'updatedAt'],
+          // exclude: ['createdAt', 'updatedAt'],
         },
       });
     }
