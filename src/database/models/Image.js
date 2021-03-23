@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
     static scope(models) {
       this.addScope('defaultScope', {
         where: {
-          status: true,
+          // status: true,
         },
         attributes: {
-          exclude: ['createdAt', 'updatedAt']
+          // exclude: ['createdAt', 'updatedAt']
         },
         order: [
-          ['id', 'DESC'],
+          // ['id', 'DESC'],
         ],
       });
     }

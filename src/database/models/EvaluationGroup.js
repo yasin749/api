@@ -19,10 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     static scope(models) {
       this.addScope('defaultScope', {
         where: {
-          status: true,
+          // status: true,
         },
         order: [
-          ['id', 'DESC'],
+          // ['id', 'DESC'],
         ],
       });
     }
