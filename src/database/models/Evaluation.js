@@ -25,7 +25,11 @@ module.exports = (sequelize, DataTypes) => {
     static scope(models) {
       this.addScope('defaultScope', {
         where: {
+          deleted: false,
           // status: true,
+        },
+        attributes: {
+          exclude: ['deleted'],
         },
         order: [
           // ['id', 'DESC'],
@@ -42,6 +46,10 @@ module.exports = (sequelize, DataTypes) => {
     status: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
+    },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
   }, {
     sequelize,

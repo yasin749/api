@@ -16,6 +16,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
       },
+      deleted: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
