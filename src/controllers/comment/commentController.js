@@ -5,7 +5,7 @@ const database = require('../../database');
 const CONSTANTS = require('./commentConstants');
 
 /* Response */
-const response = require('../../response/response');
+const response = require('../../common/response/response');
 
 module.exports = {
   comments: async function (req, res, next) {

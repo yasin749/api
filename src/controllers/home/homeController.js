@@ -1,5 +1,5 @@
 /* Response */
-const response = require('../../response/response');
+const response = require('../../common/response/response');
 
 module.exports = {
   home: async function (req, res, next) {

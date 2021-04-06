@@ -1,4 +1,4 @@
-const {requireFilesFromDir} = require('../../file/fileUtils');
+const {requireFilesFromDir} = require('../../common/file/fileUtils');
 
 function init(database) {
   requireFilesFromDir(__dirname, {

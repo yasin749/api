@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {requireFilesFromDir} = require('../file/fileUtils');
+const {requireFilesFromDir} = require('../common/file/fileUtils');
 
 requireFilesFromDir(__dirname, {
   excludedFileName: __filename,

@@ -5,7 +5,7 @@ const database = require('../../database');
 const CONSTANTS = require('./imageConstants');
 
 /* Response */
-const response = require('../../response/response');
+const response = require('../../common/response/response');
 
 /* Utils */
 const {imageFullPathUnifyer} = require('./imageUtils');

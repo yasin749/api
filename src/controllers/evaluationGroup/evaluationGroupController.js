@@ -5,7 +5,7 @@ const database = require('../../database');
 const CONSTANTS = require('./evaluationGroupConstants');
 
 /* Response */
-const response = require('../../response/response');
+const response = require('../../common/response/response');
 
 module.exports = {
   evaluationGroups: async function (req, res, next) {

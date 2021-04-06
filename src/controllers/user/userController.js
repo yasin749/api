@@ -5,7 +5,7 @@ const database = require('../../database');
 const CONSTANTS = require('./userConstants');
 
 /* Response */
-const response = require('../../response/response');
+const response = require('../../common/response/response');
 
 module.exports = {
   users: async function (req, res, next) {
