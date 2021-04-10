@@ -50,30 +50,15 @@ module.exports = (sequelize, DataTypes) => {
     fullName: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [5, 30],
-      },
-      set(value) {
-        this.setDataValue('fullName', value.trim());
-      }
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      validate: {
-        isEmail: true,
-      },
-      set(value) {
-        this.setDataValue('email', value.trim());
-      }
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [6],
-      },
       set(value) {
         this.setDataValue('password', bcrypt.hashSync(value, passwordSaltRounds));
       }

@@ -43,9 +43,10 @@ module.exports = {
       ...req.body,
       userTypeId: 2,
     }).then(user => {
+      // @todo should be sequelizeResponse.ok(), sequelizeResponse.error()
       response.ok(res);
     }).catch(e => {
-      response.error(res, e.errors);
+      response.sequelizeError(res, e);
     });
   },
   editUser: async function (req, res, next) {
@@ -59,7 +60,7 @@ module.exports = {
     }).then(user => {
       response.ok(res);
     }).catch(e => {
-      response.error(res, e.errors);
+      response.sequelizeError(res, e);
     });
   },
   deleteUser: async function (req, res, next) {
@@ -71,7 +72,7 @@ module.exports = {
     }).then(user => {
       response.ok(res);
     }).catch(e => {
-      response.error(res, e.errors);
+      response.sequelizeError(res, e);
     });
   },
 

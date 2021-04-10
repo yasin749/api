@@ -39,7 +39,8 @@
     "pg": "^7.15.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
-    "swagger-ui-dist": "^3.37.2"
+    "swagger-ui-dist": "^3.37.2",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "eslint": "^7.21.0",

@@ -7,8 +7,9 @@ belongstomany relation olan alanlarda id ye göre sıralama olmuyor(avaluationgr
 custom scope kullanımında sorun var(image absolute url)
 evalutaion/group endpointi evaluation detail endpointi ile çakışıyor. detay endpointlerinin suffixlenmesi gerekebilir.(evaluation-detail gibi)
 
-validation ları model de yapma
 
+response lar ayrıştırılmalı, response, sequelizeresponse, validationresponse
 
+admin ve user scope ları oluşturulmalı
 
-
+controller lardaki next ifdesi silinmeli

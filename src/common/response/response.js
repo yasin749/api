@@ -10,6 +10,24 @@ const response = {
     res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(json || {
       success: false,
     });
+  },
+  validationError: (res, json) => {
+    const responseJson = {
+      success: false,
+      message: json.message,
+      value: json.value,
+    }
+    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(responseJson);
+  },
+  sequelizeError: (res, error) => {
+    const errorObject = error.errors;
+    // @todo should send all errors. not zero zeroth
+    const responseJson = {
+      success: false,
+      message: errorObject[0].message,
+      value: errorObject[0].value,
+    }
+    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(responseJson);
   }
 }
 
