@@ -8,7 +8,7 @@ const CONSTANTS = require('./commentConstants');
 const response = require('../../common/response/response');
 
 module.exports = {
-  comments: async function (req, res, next) {
+  comments: async function (req, res) {
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
@@ -23,7 +23,7 @@ module.exports = {
       response.error(res);
     }
   },
-  commentsBlongToUser: async function (req, res, next) {
+  commentsBlongToUser: async function (req, res) {
     const userId = parseInt(req.params.userId);
 
     const page = parseInt(req.query.page) || 1;
@@ -41,7 +41,7 @@ module.exports = {
       response.error(res);
     }
   },
-  commentsBlongToProduct: async function (req, res, next) {
+  commentsBlongToProduct: async function (req, res) {
     const productId = parseInt(req.params.productId);
 
     const page = parseInt(req.query.page) || 1;
@@ -59,7 +59,7 @@ module.exports = {
       response.error(res);
     }
   },
-  commentDetail: async function (req, res, next) {
+  commentDetail: async function (req, res) {
     const commentId = parseInt(req.params.commentId);
 
     const comment = await database.models.Comment.findOne({

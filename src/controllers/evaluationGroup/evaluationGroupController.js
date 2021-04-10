@@ -8,7 +8,7 @@ const CONSTANTS = require('./evaluationGroupConstants');
 const response = require('../../common/response/response');
 
 module.exports = {
-  evaluationGroups: async function (req, res, next) {
+  evaluationGroups: async function (req, res) {
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
@@ -23,7 +23,7 @@ module.exports = {
       response.error(res);
     }
   },
-  evaluationGroupDetail: async function (req, res, next) {
+  evaluationGroupDetail: async function (req, res) {
     const groupId = parseInt(req.params.groupId);
 
     const evaluationGroup = await database.models.EvaluationGroup.findOne({

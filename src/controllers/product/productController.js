@@ -8,7 +8,7 @@ const response = require('../../common/response/response');
 const {imageFullPathUnifyer} = require('./../image/imageUtils');
 
 module.exports = {
-  productDetail: async function (req, res, next) {
+  productDetail: async function (req, res) {
     const productId = parseInt(req.params.productId);
 
     const getEvaluationCountQuery = function (value) {

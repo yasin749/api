@@ -8,7 +8,7 @@ const CONSTANTS = require('./categoryConstants');
 const response = require('../../common/response/response');
 
 module.exports = {
-  categories: async function (req, res, next) {
+  categories: async function (req, res) {
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
@@ -23,7 +23,7 @@ module.exports = {
       response.error(res);
     }
   },
-  categoryDetail: async function (req, res, next) {
+  categoryDetail: async function (req, res) {
     const categoryId = parseInt(req.params.categoryId);
 
     const page = parseInt(req.query.page) || 1;

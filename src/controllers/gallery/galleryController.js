@@ -11,7 +11,7 @@ const response = require('../../common/response/response');
 const {imageFullPathUnifyer} = require('./../image/imageUtils');
 
 module.exports = {
-  galleries: async function (req, res, next) {
+  galleries: async function (req, res) {
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
@@ -26,7 +26,7 @@ module.exports = {
       response.error(res);
     }
   },
-  galleryDetail: async function (req, res, next) {
+  galleryDetail: async function (req, res) {
     const galleryId = parseInt(req.params.galleryId);
 
     const page = parseInt(req.query.page) || 1;

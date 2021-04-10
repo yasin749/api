@@ -2,10 +2,10 @@
 const response = require('../../common/response/response');
 
 module.exports = {
-  home: async function (req, res, next) {
+  home: async function (req, res) {
     response.ok(res);
   },
-  status: async function (req, res, next) {
+  status: async function (req, res) {
     response.ok(res);
   }
 };

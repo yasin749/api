@@ -8,7 +8,7 @@ const CONSTANTS = require('./userConstants');
 const response = require('../../common/response/response');
 
 module.exports = {
-  users: async function (req, res, next) {
+  users: async function (req, res) {
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
@@ -23,7 +23,7 @@ module.exports = {
       response.error(res);
     }
   },
-  userDetail: async function (req, res, next) {
+  userDetail: async function (req, res) {
     const userId = parseInt(req.params.userId);
 
     const user = await database.models.User.findOne({
@@ -37,19 +37,17 @@ module.exports = {
     }
   },
 
-  addUser: async function (req, res, next) {
-    //@todo userTypeId
+  addUser: async function (req, res) {
     await database.models.User.create({
       ...req.body,
       userTypeId: 2,
     }).then(user => {
-      // @todo should be sequelizeResponse.ok(), sequelizeResponse.error()
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
     });
   },
-  editUser: async function (req, res, next) {
+  editUser: async function (req, res) {
     const userId = parseInt(req.params.userId);
 
     await database.models.User.update({
@@ -63,11 +61,12 @@ module.exports = {
       response.sequelizeError(res, e);
     });
   },
-  deleteUser: async function (req, res, next) {
+  deleteUser: async function (req, res) {
     const userId = parseInt(req.params.userId);
 
-    // @todo should be soft delete
-    await database.models.User.destroy({
+    await database.models.User.update({
+      deleted: true,
+    }, {
       where: {id: userId},
     }).then(user => {
       response.ok(res);

@@ -8,7 +8,7 @@ const CONSTANTS = require('./evaluationConstants');
 const response = require('../../common/response/response');
 
 module.exports = {
-  evaluations: async function (req, res, next) {
+  evaluations: async function (req, res) {
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
@@ -23,7 +23,7 @@ module.exports = {
       response.error(res);
     }
   },
-  evaluationsBelongToUser: async function (req, res, next) {
+  evaluationsBelongToUser: async function (req, res) {
     const userId = parseInt(req.params.userId);
 
     const page = parseInt(req.query.page) || 1;
@@ -51,7 +51,7 @@ module.exports = {
       response.error(res);
     }
   },
-  evaluationsBelongToProduct: async function (req, res, next) {
+  evaluationsBelongToProduct: async function (req, res) {
     const productId = parseInt(req.params.productId);
 
     const page = parseInt(req.query.page) || 1;
@@ -79,7 +79,7 @@ module.exports = {
       response.error(res);
     }
   },
-  evaluationDetail: async function (req, res, next) {
+  evaluationDetail: async function (req, res) {
     const evaluationId = parseInt(req.params.evaluationId);
 
     const evaluation = await database.models.Evaluation.findOne({

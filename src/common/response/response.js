@@ -21,7 +21,6 @@ const response = {
   },
   sequelizeError: (res, error) => {
     const errorObject = error.errors;
-    // @todo should send all errors. not zero zeroth
     const responseJson = {
       success: false,
       message: errorObject[0].message,

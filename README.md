@@ -1,5 +1,9 @@
 TODO LIST
 
+userTypeId hardcoded 2 verildi, düzeltilmeli
+
+
+response lar ayrıştırılmalı, response, sequelizeresponse, validationresponse
 response mapper(mapsuccessresponse)
 pagination mapper
 
@@ -8,8 +12,7 @@ custom scope kullanımında sorun var(image absolute url)
 evalutaion/group endpointi evaluation detail endpointi ile çakışıyor. detay endpointlerinin suffixlenmesi gerekebilir.(evaluation-detail gibi)
 
 
-response lar ayrıştırılmalı, response, sequelizeresponse, validationresponse
-
 admin ve user scope ları oluşturulmalı
 
-controller lardaki next ifdesi silinmeli
+
+Kullanıcı ekleme silme endpointlerinde authentication, authorization kontrolü olmalı
