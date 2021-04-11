@@ -1,4 +1,4 @@
-const {requireFilesFromDir} = require('../../common/file/fileUtils');
+const {requireFilesFromDir} = require('../../../common/file/fileUtils');
 
 let models = {};
 

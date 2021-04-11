@@ -1,5 +1,5 @@
 /* Databases */
-const database = require('../../database');
+const database = require('../../database/sequelize');
 
 /* Response */
 const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');

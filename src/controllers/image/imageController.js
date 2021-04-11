@@ -1,5 +1,5 @@
 /* Databases */
-const database = require('../../database');
+const database = require('../../database/sequelize');
 
 /* Constants */
 const CONSTANTS = require('./imageConstants');

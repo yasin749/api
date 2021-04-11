@@ -5,7 +5,7 @@ const Hooks = require('./hooks');
 const models = require('./models');
 
 /* Configs */
-const {databaseConfig} = require('../config');
+const {databaseConfig} = require('../../config');
 
 // Create sequelize instance
 let sequelize = new Sequelize(databaseConfig.database, databaseConfig.username, databaseConfig.password, databaseConfig);
