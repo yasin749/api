@@ -45,5 +45,40 @@ module.exports = {
     } else {
       sequelizeResponse.error(res);
     }
-  }
+  },
+  addCategory: async function (req, res) {
+    await database.models.Category.create({
+      ...req.body,
+    }).then(category => {
+      sequelizeResponse.ok(res);
+    }).catch(e => {
+      sequelizeResponse.error(res, e);
+    });
+  },
+  editCategory: async function (req, res) {
+    const categoryId = parseInt(req.params.categoryId);
+
+    await database.models.Category.update({
+      ...req.body,
+    }, {
+      where: {id: categoryId},
+    }).then(category => {
+      sequelizeResponse.ok(res);
+    }).catch(e => {
+      sequelizeResponse.error(res, e);
+    });
+  },
+  deleteCategory: async function (req, res) {
+    const categoryId = parseInt(req.params.categoryId);
+
+    await database.models.Category.update({
+      deleted: true,
+    }, {
+      where: {id: categoryId},
+    }).then(category => {
+      sequelizeResponse.ok(res);
+    }).catch(e => {
+      sequelizeResponse.error(res, e);
+    });
+  },
 };

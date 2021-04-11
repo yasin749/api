@@ -5,6 +5,11 @@ function isEmpty(string) {
   return validator.isEmpty(string);
 }
 
+function isFull(string) {
+  string = validator.trim(string);
+  return !validator.isEmpty(string);
+}
+
 function isAlpha(string) {
   return validator.isAlpha(string);
 }
@@ -32,6 +37,7 @@ function isEmail(string) {
 
 module.exports = {
   isEmpty,
+  isFull,
   isAlpha,
   isAlphanumeric,
   isNumeric,

@@ -14,3 +14,10 @@ belongstomany relation olan alanlarda id ye göre sıralama olmuyor(avaluationgr
 custom scope kullanımında sorun var(image absolute url)
 
 
+kategori hierarşisi
+
+swagger da her item için model oluşturulmalı
+
+parentCategoryId mevcutsa eğer numara olup olmadığını bakılmalı
+
+unhandledRejection

@@ -4,7 +4,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'local';
 
 module.exports = {
   'config': './src/config/databaseConfig',
-  'models-path': './src/database/models',
-  'seeders-path': './src/database/seeders',
-  'migrations-path': './src/database/migrations',
+  'models-path': './src/database/sequelize/models',
+  'seeders-path': './src/database/sequelize/seeders',
+  'migrations-path': './src/database/sequelize/migrations',
 };
