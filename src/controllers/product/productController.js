@@ -2,7 +2,7 @@
 const database = require('../../database');
 
 /* Response */
-const response = require('../../common/response/response');
+const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');
 
 /* Utils */
 const {imageFullPathUnifyer} = require('./../image/imageUtils');
@@ -104,9 +104,9 @@ module.exports = {
     });
 
     if (product) {
-      response.ok(res, product);
+      sequelizeResponse.ok(res, product);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
 };

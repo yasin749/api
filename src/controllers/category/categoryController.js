@@ -5,7 +5,7 @@ const database = require('../../database');
 const CONSTANTS = require('./categoryConstants');
 
 /* Response */
-const response = require('../../common/response/response');
+const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');
 
 module.exports = {
   categories: async function (req, res) {
@@ -18,9 +18,9 @@ module.exports = {
     });
 
     if (categories.length) {
-      response.ok(res, categories);
+      sequelizeResponse.ok(res, categories);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
   categoryDetail: async function (req, res) {
@@ -41,9 +41,9 @@ module.exports = {
     });
 
     if (category) {
-      response.ok(res, category);
+      sequelizeResponse.ok(res, category);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   }
 };

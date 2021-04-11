@@ -5,7 +5,7 @@ const database = require('../../database');
 const CONSTANTS = require('./userConstants');
 
 /* Response */
-const response = require('../../common/response/response');
+const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');
 
 module.exports = {
   users: async function (req, res) {
@@ -18,9 +18,9 @@ module.exports = {
     });
 
     if (users.length) {
-      response.ok(res, users);
+      sequelizeResponse.ok(res, users);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
   userDetail: async function (req, res) {
@@ -31,9 +31,9 @@ module.exports = {
     });
 
     if (user) {
-      response.ok(res, user);
+      sequelizeResponse.ok(res, user);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
 
@@ -42,9 +42,9 @@ module.exports = {
       ...req.body,
       userTypeId: 2,
     }).then(user => {
-      response.ok(res);
+      sequelizeResponse.ok(res);
     }).catch(e => {
-      response.sequelizeError(res, e);
+      sequelizeResponse.error(res, e);
     });
   },
   editUser: async function (req, res) {
@@ -56,9 +56,9 @@ module.exports = {
     }, {
       where: {id: userId},
     }).then(user => {
-      response.ok(res);
+      sequelizeResponse.ok(res);
     }).catch(e => {
-      response.sequelizeError(res, e);
+      sequelizeResponse.error(res, e);
     });
   },
   deleteUser: async function (req, res) {
@@ -69,9 +69,9 @@ module.exports = {
     }, {
       where: {id: userId},
     }).then(user => {
-      response.ok(res);
+      sequelizeResponse.ok(res);
     }).catch(e => {
-      response.sequelizeError(res, e);
+      sequelizeResponse.error(res, e);
     });
   },
 

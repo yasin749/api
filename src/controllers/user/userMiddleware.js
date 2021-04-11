@@ -2,7 +2,7 @@
 const {userFormValidate} = require('./userValidator');
 
 /* Response */
-const response = require('../../common/response/response');
+const validationResponse = require('../../common/response/validation/validationResponse');
 
 module.exports = {
   addUser: function (req, res, next) {
@@ -10,7 +10,7 @@ module.exports = {
     const userValidate = userFormValidate(user, true);
 
     if (!userValidate.valid) {
-      response.validationError(res, userValidate.error);
+      validationResponse.error(res, userValidate.error);
     } else {
       next();
     }
@@ -20,13 +20,12 @@ module.exports = {
     const userValidate = userFormValidate(user);
 
     if (!userValidate.valid) {
-      response.validationError(res, userValidate.error);
+      validationResponse.error(res, userValidate.error);
     } else {
       next();
     }
   },
   deleteUser: function (req, res, next) {
-    // @todo should be authentication control
     next();
   },
 }

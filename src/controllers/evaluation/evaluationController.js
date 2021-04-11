@@ -5,7 +5,7 @@ const database = require('../../database');
 const CONSTANTS = require('./evaluationConstants');
 
 /* Response */
-const response = require('../../common/response/response');
+const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');
 
 module.exports = {
   evaluations: async function (req, res) {
@@ -18,9 +18,9 @@ module.exports = {
     });
 
     if (evaluations.length) {
-      response.ok(res, evaluations);
+      sequelizeResponse.ok(res, evaluations);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
   evaluationsBelongToUser: async function (req, res) {
@@ -46,9 +46,9 @@ module.exports = {
     });
 
     if (evaluations.length) {
-      response.ok(res, evaluations);
+      sequelizeResponse.ok(res, evaluations);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
   evaluationsBelongToProduct: async function (req, res) {
@@ -74,9 +74,9 @@ module.exports = {
     });
 
     if (evaluations.length) {
-      response.ok(res, evaluations);
+      sequelizeResponse.ok(res, evaluations);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
   evaluationDetail: async function (req, res) {
@@ -101,9 +101,9 @@ module.exports = {
     });
 
     if (evaluation) {
-      response.ok(res, evaluation);
+      sequelizeResponse.ok(res, evaluation);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
 };

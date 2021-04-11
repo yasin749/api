@@ -5,7 +5,7 @@ const database = require('../../database');
 const CONSTANTS = require('./commentConstants');
 
 /* Response */
-const response = require('../../common/response/response');
+const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');
 
 module.exports = {
   comments: async function (req, res) {
@@ -18,9 +18,9 @@ module.exports = {
     });
 
     if (comments.length) {
-      response.ok(res, comments);
+      sequelizeResponse.ok(res, comments);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
   commentsBlongToUser: async function (req, res) {
@@ -36,9 +36,9 @@ module.exports = {
     });
 
     if (comments.length) {
-      response.ok(res, comments);
+      sequelizeResponse.ok(res, comments);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
   commentsBlongToProduct: async function (req, res) {
@@ -54,9 +54,9 @@ module.exports = {
     });
 
     if (comments.length) {
-      response.ok(res, comments);
+      sequelizeResponse.ok(res, comments);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
   commentDetail: async function (req, res) {
@@ -77,9 +77,9 @@ module.exports = {
     });
 
     if (comment) {
-      response.ok(res, comment);
+      sequelizeResponse.ok(res, comment);
     } else {
-      response.error(res);
+      sequelizeResponse.error(res);
     }
   },
 };
