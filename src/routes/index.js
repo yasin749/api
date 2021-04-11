@@ -1,13 +1,14 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 
-const {requireFilesFromDir} = require('../common/file/fileUtils');
-
-requireFilesFromDir(__dirname, {
-  excludedFileName: __filename,
-  afterImport: function (fileName, importedFile) {
-    importedFile(router);
-  }
-});
+require('../routes/home')(router);
+require('../routes/user')(router);
+require('../routes/image')(router);
+require('../routes/gallery')(router);
+require('../routes/category')(router);
+require('../routes/product')(router);
+require('../routes/comment')(router);
+require('../routes/evaluationGroup')(router);
+require('../routes/evaluation')(router);
 
 module.exports = router;
