@@ -18,6 +18,8 @@ kategori hierarşisi
 
 swagger da her item için model oluşturulmalı
 
-parentCategoryId mevcutsa eğer numara olup olmadığını bakılmalı
+category => parentCategoryId
+product => categoryId, coverGalleryId, contentGalleryId, evaluationGroupId. categoryId ve evaluationGroupId ekleme modunda zorunlu olmalı
+mevcutsa eğer numara olup olmadığını bakılmalı
 
 unhandledRejection

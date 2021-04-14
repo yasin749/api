@@ -109,4 +109,39 @@ module.exports = {
       sequelizeResponse.error(res);
     }
   },
+  addProduct: async function (req, res) {
+    await database.models.Product.create({
+      ...req.body,
+    }).then(product => {
+      sequelizeResponse.ok(res);
+    }).catch(e => {
+      sequelizeResponse.error(res, e);
+    });
+  },
+  editProduct: async function (req, res) {
+    const productId = parseInt(req.params.productId);
+
+    await database.models.Product.update({
+      ...req.body,
+    }, {
+      where: {id: productId},
+    }).then(product => {
+      sequelizeResponse.ok(res);
+    }).catch(e => {
+      sequelizeResponse.error(res, e);
+    });
+  },
+  deleteProduct: async function (req, res) {
+    const productId = parseInt(req.params.productId);
+
+    await database.models.Product.update({
+      deleted: true,
+    }, {
+      where: {id: productId},
+    }).then(product => {
+      sequelizeResponse.ok(res);
+    }).catch(e => {
+      sequelizeResponse.error(res, e);
+    });
+  },
 };

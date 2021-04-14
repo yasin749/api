@@ -32,14 +32,6 @@ module.exports = {
           key: 'id',
         },
       },
-      name: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      description: {
-        type: Sequelize.STRING,
-        allowNull: true,
-      },
       evaluationGroupId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -47,6 +39,14 @@ module.exports = {
           model: 'EvaluationGroups',
           key: 'id',
         },
+      },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      description: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       sort: {
         type: Sequelize.INTEGER,

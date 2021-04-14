@@ -1,6 +1,7 @@
 const STATUS_CODES = require('http-status-codes');
 
 const response = {
+  // @todo delete ok function
   ok: (res, json) => {
     res.status(STATUS_CODES.OK).json(json || {
       success: true,
