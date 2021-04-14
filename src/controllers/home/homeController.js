@@ -1,11 +1,11 @@
 /* Response */
-const applicationResponse = require('../../common/response/application/applicationResponse');
+const response = require('../../common/response/response');
 
 module.exports = {
   home: async function (req, res) {
-    applicationResponse.ok(res);
+    response.ok(res);
   },
   status: async function (req, res) {
-    applicationResponse.ok(res);
+    response.ok(res);
   }
 };

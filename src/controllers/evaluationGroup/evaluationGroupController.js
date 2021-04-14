@@ -5,7 +5,7 @@ const database = require('../../database/sequelize');
 const CONSTANTS = require('./evaluationGroupConstants');
 
 /* Response */
-const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');
+const response = require('../../common/response/response');
 
 module.exports = {
   evaluationGroups: async function (req, res) {
@@ -18,9 +18,9 @@ module.exports = {
     });
 
     if (evaluationGroups.length) {
-      sequelizeResponse.ok(res, evaluationGroups);
+      response.ok(res, evaluationGroups);
     } else {
-      sequelizeResponse.error(res);
+      response.error(res);
     }
   },
   evaluationGroupDetail: async function (req, res) {
@@ -40,9 +40,9 @@ module.exports = {
     });
 
     if (evaluationGroup) {
-      sequelizeResponse.ok(res, evaluationGroup);
+      response.ok(res, evaluationGroup);
     } else {
-      sequelizeResponse.error(res);
+      response.error(res);
     }
   },
 };

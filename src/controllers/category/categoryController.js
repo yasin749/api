@@ -5,7 +5,7 @@ const database = require('../../database/sequelize');
 const CONSTANTS = require('./categoryConstants');
 
 /* Response */
-const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');
+const response = require('../../common/response/response');
 
 module.exports = {
   categories: async function (req, res) {
@@ -18,9 +18,9 @@ module.exports = {
     });
 
     if (categories.length) {
-      sequelizeResponse.ok(res, categories);
+      response.ok(res, categories);
     } else {
-      sequelizeResponse.error(res);
+      response.error(res);
     }
   },
   categoryDetail: async function (req, res) {
@@ -41,18 +41,18 @@ module.exports = {
     });
 
     if (category) {
-      sequelizeResponse.ok(res, category);
+      response.ok(res, category);
     } else {
-      sequelizeResponse.error(res);
+      response.error(res);
     }
   },
   addCategory: async function (req, res) {
     await database.models.Category.create({
       ...req.body,
     }).then(category => {
-      sequelizeResponse.ok(res);
+      response.ok(res);
     }).catch(e => {
-      sequelizeResponse.error(res, e);
+      response.sequelizeError(res, e);
     });
   },
   editCategory: async function (req, res) {
@@ -63,9 +63,9 @@ module.exports = {
     }, {
       where: {id: categoryId},
     }).then(category => {
-      sequelizeResponse.ok(res);
+      response.ok(res);
     }).catch(e => {
-      sequelizeResponse.error(res, e);
+      response.sequelizeError(res, e);
     });
   },
   deleteCategory: async function (req, res) {
@@ -76,9 +76,9 @@ module.exports = {
     }, {
       where: {id: categoryId},
     }).then(category => {
-      sequelizeResponse.ok(res);
+      response.ok(res);
     }).catch(e => {
-      sequelizeResponse.error(res, e);
+      response.sequelizeError(res, e);
     });
   },
 };

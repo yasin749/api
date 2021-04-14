@@ -2,7 +2,7 @@
 const {productFormValidate} = require('./productValidator');
 
 /* Response */
-const validationResponse = require('../../common/response/validation/validationResponse');
+const response = require('../../common/response/response');
 
 module.exports = {
   addProduct: function (req, res, next) {
@@ -10,7 +10,7 @@ module.exports = {
     const productValidate = productFormValidate(product, true);
 
     if (!productValidate.valid) {
-      validationResponse.error(res, productValidate.error);
+      response.validationError(res, productValidate.error);
     } else {
       next();
     }
@@ -20,7 +20,7 @@ module.exports = {
     const productValidate = productFormValidate(product);
 
     if (!productValidate.valid) {
-      validationResponse.error(res, productValidate.error);
+      response.validationError(res, productValidate.error);
     } else {
       next();
     }

@@ -1,13 +1,25 @@
 const STATUS_CODES = require('http-status-codes');
 
 const response = {
-  // @todo delete ok function
   ok: (res, json) => {
     res.status(STATUS_CODES.OK).json(json || {
       success: true,
     });
   },
-  error: (res, error) => {
+  error: (res, json) => {
+    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(json || {
+      success: false,
+    });
+  },
+  validationError: (res, json) => {
+    const responseJson = {
+      success: false,
+      message: json.message,
+      value: json.value,
+    }
+    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(responseJson);
+  },
+  sequelizeError: (res, error) => {
     const errorObject = error.errors;
     const responseJson = {
       success: false,

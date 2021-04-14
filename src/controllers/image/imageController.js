@@ -5,7 +5,7 @@ const database = require('../../database/sequelize');
 const CONSTANTS = require('./imageConstants');
 
 /* Response */
-const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');
+const response = require('../../common/response/response');
 
 /* Utils */
 const {imageFullPathUnifyer} = require('./imageUtils');
@@ -26,9 +26,9 @@ module.exports = {
     });
 
     if (images.length) {
-      sequelizeResponse.ok(res, images);
+      response.ok(res, images);
     } else {
-      sequelizeResponse.error(res);
+      response.error(res);
     }
   },
   imageDetail: async function (req, res) {
@@ -58,9 +58,9 @@ module.exports = {
     });
 
     if (image) {
-      sequelizeResponse.ok(res, image);
+      response.ok(res, image);
     } else {
-      sequelizeResponse.error(res);
+      response.error(res);
     }
   }
 };

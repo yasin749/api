@@ -2,7 +2,7 @@
 const {categoryFormValidate} = require('./categoryValidator');
 
 /* Response */
-const validationResponse = require('../../common/response/validation/validationResponse');
+const response = require('../../common/response/response');
 
 module.exports = {
   addCategory: function (req, res, next) {
@@ -10,7 +10,7 @@ module.exports = {
     const categoryValidate = categoryFormValidate(category, true);
 
     if (!categoryValidate.valid) {
-      validationResponse.error(res, categoryValidate.error);
+      response.validationError(res, categoryValidate.error);
     } else {
       next();
     }
@@ -20,7 +20,7 @@ module.exports = {
     const categoryValidate = categoryFormValidate(category);
 
     if (!categoryValidate.valid) {
-      validationResponse.error(res, categoryValidate.error);
+      response.validationError(res, categoryValidate.error);
     } else {
       next();
     }

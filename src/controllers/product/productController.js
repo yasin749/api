@@ -2,7 +2,7 @@
 const database = require('../../database/sequelize');
 
 /* Response */
-const sequelizeResponse = require('../../common/response/sequelize/sequelizeResponse');
+const response = require('../../common/response/response');
 
 /* Utils */
 const {imageFullPathUnifyer} = require('./../image/imageUtils');
@@ -104,18 +104,18 @@ module.exports = {
     });
 
     if (product) {
-      sequelizeResponse.ok(res, product);
+      response.ok(res, product);
     } else {
-      sequelizeResponse.error(res);
+      response.error(res);
     }
   },
   addProduct: async function (req, res) {
     await database.models.Product.create({
       ...req.body,
     }).then(product => {
-      sequelizeResponse.ok(res);
+      response.ok(res);
     }).catch(e => {
-      sequelizeResponse.error(res, e);
+      response.sequelizeError(res, e);
     });
   },
   editProduct: async function (req, res) {
@@ -126,9 +126,9 @@ module.exports = {
     }, {
       where: {id: productId},
     }).then(product => {
-      sequelizeResponse.ok(res);
+      response.ok(res);
     }).catch(e => {
-      sequelizeResponse.error(res, e);
+      response.sequelizeError(res, e);
     });
   },
   deleteProduct: async function (req, res) {
@@ -139,9 +139,9 @@ module.exports = {
     }, {
       where: {id: productId},
     }).then(product => {
-      sequelizeResponse.ok(res);
+      response.ok(res);
     }).catch(e => {
-      sequelizeResponse.error(res, e);
+      response.sequelizeError(res, e);
     });
   },
 };

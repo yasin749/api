@@ -23,3 +23,6 @@ product => categoryId, coverGalleryId, contentGalleryId, evaluationGroupId. cate
 mevcutsa eğer numara olup olmadığını bakılmalı
 
 unhandledRejection
+
+
+db:rebuild -> sequelize db:rebuild olmalı
