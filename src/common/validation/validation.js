@@ -35,6 +35,10 @@ function isEmail(string) {
   return validator.isEmail(string);
 }
 
+function isURL(string, options) {
+  return validator.isURL(string, options);
+}
+
 module.exports = {
   isEmpty,
   isFull,
@@ -44,4 +48,5 @@ module.exports = {
   isBoolean,
   isLength,
   isEmail,
+  isURL,
 }

@@ -62,5 +62,40 @@ module.exports = {
     } else {
       response.error(res);
     }
-  }
+  },
+  addImage: async function (req, res) {
+    await database.models.Image.create({
+      ...req.body,
+    }).then(image => {
+      response.ok(res);
+    }).catch(e => {
+      response.sequelizeError(res, e);
+    });
+  },
+  editImage: async function (req, res) {
+    const imageId = parseInt(req.params.imageId);
+
+    await database.models.Image.update({
+      ...req.body,
+    }, {
+      where: {id: imageId},
+    }).then(image => {
+      response.ok(res);
+    }).catch(e => {
+      response.sequelizeError(res, e);
+    });
+  },
+  deleteImage: async function (req, res) {
+    const imageId = parseInt(req.params.imageId);
+
+    await database.models.Image.update({
+      deleted: true,
+    }, {
+      where: {id: imageId},
+    }).then(image => {
+      response.ok(res);
+    }).catch(e => {
+      response.sequelizeError(res, e);
+    });
+  },
 };

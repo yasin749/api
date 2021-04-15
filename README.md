@@ -22,6 +22,8 @@ category => parentCategoryId
 product => categoryId, coverGalleryId, contentGalleryId, evaluationGroupId. categoryId ve evaluationGroupId ekleme modunda zorunlu olmalı
 mevcutsa eğer numara olup olmadığını bakılmalı
 
+image path ı editlenemez olmalı
+
 unhandledRejection
 
 
