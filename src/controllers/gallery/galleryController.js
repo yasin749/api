@@ -57,5 +57,40 @@ module.exports = {
     } else {
       response.error(res);
     }
-  }
+  },
+  addGallery: async function (req, res) {
+    await database.models.Gallery.create({
+      ...req.body,
+    }).then(gallery => {
+      response.ok(res);
+    }).catch(e => {
+      response.sequelizeError(res, e);
+    });
+  },
+  editGallery: async function (req, res) {
+    const galleryId = parseInt(req.params.galleryId);
+
+    await database.models.Gallery.update({
+      ...req.body,
+    }, {
+      where: {id: galleryId},
+    }).then(gallery => {
+      response.ok(res);
+    }).catch(e => {
+      response.sequelizeError(res, e);
+    });
+  },
+  deleteGallery: async function (req, res) {
+    const galleryId = parseInt(req.params.galleryId);
+
+    await database.models.Gallery.update({
+      deleted: true,
+    }, {
+      where: {id: galleryId},
+    }).then(gallery => {
+      response.ok(res);
+    }).catch(e => {
+      response.sequelizeError(res, e);
+    });
+  },
 };

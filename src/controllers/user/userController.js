@@ -36,7 +36,6 @@ module.exports = {
       response.error(res);
     }
   },
-
   addUser: async function (req, res) {
     await database.models.User.create({
       ...req.body,
@@ -74,5 +73,4 @@ module.exports = {
       response.sequelizeError(res, e);
     });
   },
-
 };
