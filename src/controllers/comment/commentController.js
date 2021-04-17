@@ -82,4 +82,40 @@ module.exports = {
       response.error(res);
     }
   },
+
+  addComment: async function (req, res) {
+    await database.models.Comment.create({
+      ...req.body,
+    }).then(comment => {
+      response.ok(res);
+    }).catch(e => {
+      response.sequelizeError(res, e);
+    });
+  },
+  editComment: async function (req, res) {
+    const commentId = parseInt(req.params.commentId);
+
+    await database.models.Comment.update({
+      ...req.body,
+    }, {
+      where: {id: commentId},
+    }).then(comment => {
+      response.ok(res);
+    }).catch(e => {
+      response.sequelizeError(res, e);
+    });
+  },
+  deleteComment: async function (req, res) {
+    const commentId = parseInt(req.params.commentId);
+
+    await database.models.Comment.update({
+      deleted: true,
+    }, {
+      where: {id: commentId},
+    }).then(comment => {
+      response.ok(res);
+    }).catch(e => {
+      response.sequelizeError(res, e);
+    });
+  },
 };

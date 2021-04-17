@@ -1,32 +1,48 @@
 const STATUS_CODES = require('http-status-codes');
 
+const DEFAULT_SUCCESS_RESPONSE = {
+  success: true,
+};
+
+const DEFAULT_ERROR_RESPONSE = {
+  success: false,
+};
+
 const response = {
   ok: (res, json) => {
-    res.status(STATUS_CODES.OK).json(json || {
-      success: true,
-    });
+    res.status(STATUS_CODES.OK).json(json || DEFAULT_SUCCESS_RESPONSE);
   },
   error: (res, json) => {
-    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(json || {
-      success: false,
-    });
+    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(json || DEFAULT_ERROR_RESPONSE);
   },
   validationError: (res, json) => {
-    const responseJson = {
-      success: false,
-      message: json.message,
-      value: json.value,
+    console.error('validationError ', json);
+    let responseJson;
+    try {
+      responseJson = {
+        success: false,
+        message: json.message,
+        value: json.value,
+      }
+    } catch (e) {
+      // empty
     }
-    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(responseJson);
+    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(responseJson || DEFAULT_ERROR_RESPONSE);
   },
   sequelizeError: (res, error) => {
-    const errorObject = error.errors;
-    const responseJson = {
-      success: false,
-      message: errorObject[0].message,
-      value: errorObject[0].value,
+    console.error('sequelizeError ', error);
+    let responseJson;
+    try {
+      const errorObject = error.errors;
+      responseJson = {
+        success: false,
+        message: errorObject[0].message,
+        value: errorObject[0].value,
+      }
+    } catch (e) {
+      // empty
     }
-    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(responseJson);
+    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(responseJson || DEFAULT_ERROR_RESPONSE);
   }
 }
 

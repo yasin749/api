@@ -29,7 +29,7 @@ module.exports = {
         allowNull: false,
       },
       glad: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
         allowNull: false,
       },
       status: {
