@@ -47,9 +47,9 @@ module.exports = {
     }
   },
   addCategory: async function (req, res) {
-    await database.models.Category.create({
-      ...req.body,
-    }).then(category => {
+    const category = req.body;
+
+    await database.models.Category.create(category).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -57,12 +57,11 @@ module.exports = {
   },
   editCategory: async function (req, res) {
     const categoryId = parseInt(req.params.categoryId);
+    const category = req.body;
 
-    await database.models.Category.update({
-      ...req.body,
-    }, {
+    await database.models.Category.update(category, {
       where: {id: categoryId},
-    }).then(category => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -75,7 +74,7 @@ module.exports = {
       deleted: true,
     }, {
       where: {id: categoryId},
-    }).then(category => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);

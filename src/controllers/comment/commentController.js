@@ -84,9 +84,9 @@ module.exports = {
   },
 
   addComment: async function (req, res) {
-    await database.models.Comment.create({
-      ...req.body,
-    }).then(comment => {
+    const comment = req.body;
+
+    await database.models.Comment.create(comment).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -94,12 +94,13 @@ module.exports = {
   },
   editComment: async function (req, res) {
     const commentId = parseInt(req.params.commentId);
+    const comment = req.body;
+    delete comment.productId;
+    delete comment.userId;
 
-    await database.models.Comment.update({
-      ...req.body,
-    }, {
+    await database.models.Comment.update(comment, {
       where: {id: commentId},
-    }).then(comment => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -112,7 +113,7 @@ module.exports = {
       deleted: true,
     }, {
       where: {id: commentId},
-    }).then(comment => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);

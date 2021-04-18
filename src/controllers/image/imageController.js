@@ -64,9 +64,9 @@ module.exports = {
     }
   },
   addImage: async function (req, res) {
-    await database.models.Image.create({
-      ...req.body,
-    }).then(image => {
+    const image = req.body;
+
+    await database.models.Image.create(image).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -74,12 +74,12 @@ module.exports = {
   },
   editImage: async function (req, res) {
     const imageId = parseInt(req.params.imageId);
+    const image = req.body;
+    delete image.path;
 
-    await database.models.Image.update({
-      ...req.body,
-    }, {
+    await database.models.Image.update(image, {
       where: {id: imageId},
-    }).then(image => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -92,7 +92,7 @@ module.exports = {
       deleted: true,
     }, {
       where: {id: imageId},
-    }).then(image => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);

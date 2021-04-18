@@ -110,9 +110,9 @@ module.exports = {
     }
   },
   addProduct: async function (req, res) {
-    await database.models.Product.create({
-      ...req.body,
-    }).then(product => {
+    const product = req.body;
+
+    await database.models.Product.create(product).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -120,12 +120,11 @@ module.exports = {
   },
   editProduct: async function (req, res) {
     const productId = parseInt(req.params.productId);
+    const product = req.body;
 
-    await database.models.Product.update({
-      ...req.body,
-    }, {
+    await database.models.Product.update(product, {
       where: {id: productId},
-    }).then(product => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -138,7 +137,7 @@ module.exports = {
       deleted: true,
     }, {
       where: {id: productId},
-    }).then(product => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);

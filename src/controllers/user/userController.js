@@ -37,10 +37,12 @@ module.exports = {
     }
   },
   addUser: async function (req, res) {
-    await database.models.User.create({
+    const user = {
       ...req.body,
       userTypeId: 2,
-    }).then(user => {
+    };
+
+    await database.models.User.create(user).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -48,11 +50,12 @@ module.exports = {
   },
   editUser: async function (req, res) {
     const userId = parseInt(req.params.userId);
-
-    await database.models.User.update({
+    const user = {
       ...req.body,
       userTypeId: 2,
-    }, {
+    };
+
+    await database.models.User.update(user, {
       where: {id: userId},
     }).then(user => {
       response.ok(res);

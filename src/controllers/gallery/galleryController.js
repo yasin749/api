@@ -59,9 +59,9 @@ module.exports = {
     }
   },
   addGallery: async function (req, res) {
-    await database.models.Gallery.create({
-      ...req.body,
-    }).then(gallery => {
+    const gallery = req.body;
+
+    await database.models.Gallery.create(gallery).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -69,12 +69,11 @@ module.exports = {
   },
   editGallery: async function (req, res) {
     const galleryId = parseInt(req.params.galleryId);
+    const gallery = req.body;
 
-    await database.models.Gallery.update({
-      ...req.body,
-    }, {
+    await database.models.Gallery.update(gallery, {
       where: {id: galleryId},
-    }).then(gallery => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
@@ -87,7 +86,7 @@ module.exports = {
       deleted: true,
     }, {
       where: {id: galleryId},
-    }).then(gallery => {
+    }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
