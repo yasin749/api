@@ -82,7 +82,6 @@ module.exports = {
       response.error(res);
     }
   },
-
   addComment: async function (req, res) {
     const comment = req.body;
 

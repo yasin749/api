@@ -13,32 +13,32 @@ pagination mapper
 belongstomany relation olan alanlarda id ye göre sıralama olmuyor(avaluationgroup, image and gallery)
 custom scope kullanımında sorun var(image absolute url)
 
-
 kategori hierarşisi
-
-swagger da her item için model oluşturulmalı
-
-category => parentCategoryId
-product => categoryId, coverGalleryId, contentGalleryId, evaluationGroupId. categoryId ve evaluationGroupId ekleme modunda zorunlu olmalı
-mevcutsa eğer numara olup olmadığını bakılmalı
-
-galeriye image ekleme endpointi olmalı
-
-comment,  eklerken user id jwt ile çözülmeli
 
 unhandledRejection
 
 login endpointi oluşturulmalı
 
+comment, eklerken user id jwt ile çözülmeli
+
+
+
 route,controller sıraları route path lerine göre refactor edilmeli
 
-status, deleted gibi alanlar isBoolean ile validate edilmeli
-sort isInt
+swagger da her item için model oluşturulmalı
 
 response validation message eng
 error mesajında hangi alan hatalı olduğu belirtilmemeli. bu ayrı bir attribute olarak verilmeli
 
+category => parentCategoryId
+product => categoryId, coverGalleryId, contentGalleryId, evaluationGroupId. categoryId ve evaluationGroupId ekleme modunda zorunlu olmalı
+mevcutsa eğer numara olup olmadığını bakılmalı
+
 validation lara bağlantılı tabloların id kolonlarıda eklenecek XXID gibi
+
+status, deleted gibi alanlar isBoolean ile validate edilmeli
+sort isInt
 
 db:rebuild -> sequelize db:rebuild olmalı
 
+galeriye image ekleme endpointi olmalı
