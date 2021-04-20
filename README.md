@@ -22,11 +22,6 @@ login endpointi oluşturulmalı
 comment, eklerken user id jwt ile çözülmeli
 
 
-
-route,controller sıraları route path lerine göre refactor edilmeli
-
-swagger da her item için model oluşturulmalı
-
 response validation message eng
 error mesajında hangi alan hatalı olduğu belirtilmemeli. bu ayrı bir attribute olarak verilmeli
 
@@ -39,6 +34,6 @@ validation lara bağlantılı tabloların id kolonlarıda eklenecek XXID gibi
 status, deleted gibi alanlar isBoolean ile validate edilmeli
 sort isInt
 
-db:rebuild -> sequelize db:rebuild olmalı
-
 galeriye image ekleme endpointi olmalı
+
+swagger da her item için model oluşturulmalı
