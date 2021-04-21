@@ -7,20 +7,20 @@ const response = require('../../common/response/response');
 module.exports = {
   addUser: function (req, res, next) {
     const user = req.body;
-    const userValidate = userFormValidate(user, true);
+    const formValidationErrors = userFormValidate(user, true);
 
-    if (!userValidate.valid) {
-      response.validationError(res, userValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }
   },
   editUser: function (req, res, next) {
     const user = req.body;
-    const userValidate = userFormValidate(user);
+    const formValidationErrors = userFormValidate(user);
 
-    if (!userValidate.valid) {
-      response.validationError(res, userValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }

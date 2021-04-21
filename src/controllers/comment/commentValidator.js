@@ -13,15 +13,17 @@ module.exports = {
   commentFormValidate: function (comment, detailedControl) {
     return validateItems([
         {
-          control: isLength,
-          options: {min: 5},
+          method: isLength,
+          options: {
+            min: 5,
+          },
+          key: 'body',
           value: comment.body,
-          errorMessage: 'Yorum en az 5 karakter olmalı',
         },
         {
-          control: isFull,
+          method: isFull,
+          key: 'glad',
           value: comment.glad,
-          errorMessage: 'Memnuniyet durumu belirtilmeli',
         },
       ],
       detailedControl,

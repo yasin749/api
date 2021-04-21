@@ -12,9 +12,9 @@ module.exports = {
   categoryFormValidate: function (category, detailedControl) {
     return validateItems([
         {
-          control: isFull,
+          method: isFull,
+          key: 'name',
           value: category.name,
-          errorMessage: 'Kategori adı boş olmamalı',
         },
       ],
       detailedControl,

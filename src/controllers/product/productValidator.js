@@ -12,9 +12,9 @@ module.exports = {
   productFormValidate: function (product, detailedControl) {
     return validateItems([
         {
-          control: isFull,
+          method: isFull,
+          key: 'name',
           value: product.name,
-          errorMessage: 'İsim alanı boş geçilemez',
         },
       ],
       detailedControl,

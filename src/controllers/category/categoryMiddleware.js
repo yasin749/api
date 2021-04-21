@@ -7,20 +7,20 @@ const response = require('../../common/response/response');
 module.exports = {
   addCategory: function (req, res, next) {
     const category = req.body;
-    const categoryValidate = categoryFormValidate(category, true);
+    const formValidationErrors = categoryFormValidate(category, true);
 
-    if (!categoryValidate.valid) {
-      response.validationError(res, categoryValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }
   },
   editCategory: function (req, res, next) {
     const category = req.body;
-    const categoryValidate = categoryFormValidate(category);
+    const formValidationErrors = categoryFormValidate(category);
 
-    if (!categoryValidate.valid) {
-      response.validationError(res, categoryValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }

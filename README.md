@@ -29,6 +29,8 @@ category => parentCategoryId
 product => categoryId, coverGalleryId, contentGalleryId, evaluationGroupId. categoryId ve evaluationGroupId ekleme modunda zorunlu olmalı
 mevcutsa eğer numara olup olmadığını bakılmalı
 
+edit yapıldığında hiçbir item gönderilmediyse 500 vermeli
+
 validation lara bağlantılı tabloların id kolonlarıda eklenecek XXID gibi
 
 status, deleted gibi alanlar isBoolean ile validate edilmeli

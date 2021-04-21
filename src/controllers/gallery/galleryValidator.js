@@ -12,9 +12,9 @@ module.exports = {
   galleryFormValidate: function (gallery, detailedControl) {
     return validateItems([
         {
-          control: isFull,
+          method: isFull,
+          key: 'name',
           value: gallery.name,
-          errorMessage: 'Galerinin bir ismi olmalı',
         },
       ],
       detailedControl,

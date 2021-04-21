@@ -7,20 +7,20 @@ const response = require('../../common/response/response');
 module.exports = {
   addComment: function (req, res, next) {
     const comment = req.body;
-    const commentValidate = commentFormValidate(comment, true);
+    const formValidationErrors = commentFormValidate(comment, true);
 
-    if (!commentValidate.valid) {
-      response.validationError(res, commentValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }
   },
   editComment: function (req, res, next) {
     const comment = req.body;
-    const commentValidate = commentFormValidate(comment);
+    const formValidationErrors = commentFormValidate(comment);
 
-    if (!commentValidate.valid) {
-      response.validationError(res, commentValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }

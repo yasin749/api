@@ -7,20 +7,20 @@ const response = require('../../common/response/response');
 module.exports = {
   addGallery: function (req, res, next) {
     const gallery = req.body;
-    const galleryValidate = galleryFormValidate(gallery, true);
+    const formValidationErrors = galleryFormValidate(gallery, true);
 
-    if (!galleryValidate.valid) {
-      response.validationError(res, galleryValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }
   },
   editGallery: function (req, res, next) {
     const gallery = req.body;
-    const galleryValidate = galleryFormValidate(gallery);
+    const formValidationErrors = galleryFormValidate(gallery);
 
-    if (!galleryValidate.valid) {
-      response.validationError(res, galleryValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }

@@ -1,47 +1,48 @@
-function generateValidationSuccess() {
-  return {
-    valid: true,
-  }
-}
+function generateValidationError(item) {
+  const {
+    method,
+    options,
+    key,
+    value,
+  } = item;
 
-function generateValidationError(value, message) {
   return {
-    valid: false,
-    error: {
-      message,
-      value,
-    }
-  }
+    method: method.name,
+    options,
+    key,
+    value,
+  };
 }
 
 function validate(item) {
   const {
-    control,
+    method,
     options,
     value,
   } = item;
 
-  return control(value, options);
+  return method(value, options);
 }
 
 function validateItems(toBeVerifiedItems, detailedControl) {
+  const errors = [];
+
   for (let i = 0; i < toBeVerifiedItems.length; i++) {
     const item = toBeVerifiedItems[i];
-    const {value, errorMessage} = item;
+    const {value} = item;
     const existValue = value !== undefined;
 
     if (
       (!existValue && detailedControl) ||
       (existValue && !validate(item))
     ) {
-      return generateValidationError(value, errorMessage);
+      errors.push(generateValidationError(item));
     }
   }
-  return generateValidationSuccess();
+  return errors;
 }
 
 module.exports = {
-  generateValidationSuccess,
   generateValidationError,
   validate,
   validateItems,

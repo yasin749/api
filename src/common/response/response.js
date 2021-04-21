@@ -10,34 +10,71 @@ const DEFAULT_ERROR_RESPONSE = {
 
 const response = {
   ok: (res, json) => {
-    res.status(STATUS_CODES.OK).json(json || DEFAULT_SUCCESS_RESPONSE);
+    const responseJson = {
+      ...DEFAULT_SUCCESS_RESPONSE,
+      result: json,
+    };
+    res.status(STATUS_CODES.OK).json(responseJson);
   },
   error: (res, json) => {
-    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(json || DEFAULT_ERROR_RESPONSE);
+    console.error('error ', json);
+
+    const responseJson = {
+      ...DEFAULT_ERROR_RESPONSE,
+      errors: json,
+    };
+    res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(responseJson);
   },
   validationError: (res, json) => {
     console.error('validationError ', json);
+
     let responseJson;
     try {
+      const errors = json.map(error => {
+        const {
+          method,
+          options,
+          key,
+          value,
+        } = error;
+        return {
+          method: method,
+          options: options,
+          key: key,
+          value: value || null,
+        }
+      });
+
       responseJson = {
-        success: false,
-        message: json.message,
-        value: json.value,
+        ...DEFAULT_ERROR_RESPONSE,
+        errors,
       }
     } catch (e) {
       // empty
     }
     res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json(responseJson || DEFAULT_ERROR_RESPONSE);
   },
-  sequelizeError: (res, error) => {
-    console.error('sequelizeError ', error);
+  sequelizeError: (res, json) => {
+    console.error('sequelizeError ', json);
+
     let responseJson;
     try {
-      const errorObject = error.errors;
+      const errors = json.errors.map(error => {
+        const {
+          validatorKey,
+          path,
+          value,
+        } = error;
+        return {
+          method: validatorKey,
+          key: path,
+          value: value || null,
+        }
+      });
+
       responseJson = {
-        success: false,
-        message: errorObject[0].message,
-        value: errorObject[0].value,
+        ...DEFAULT_ERROR_RESPONSE,
+        errors,
       }
     } catch (e) {
       // empty

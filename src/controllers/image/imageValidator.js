@@ -12,14 +12,12 @@ module.exports = {
   imageFormValidate: function (image, detailedControl) {
     return validateItems([
         {
-          control: isURL,
+          method: isURL,
           options: {
-            require_host: false,
-            allow_underscores: true,
-            allow_protocol_relative_urls: true,
+            allowRelative: true,
           },
+          key: 'path',
           value: image.path,
-          errorMessage: 'Resim yolu url formatında olmalı',
         },
       ],
       detailedControl,

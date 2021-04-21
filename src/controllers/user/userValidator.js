@@ -13,21 +13,26 @@ module.exports = {
   userFormValidate: function (user, detailedControl) {
     return validateItems([
         {
-          control: isLength,
-          options: {min: 5, max: 30},
+          method: isLength,
+          options: {
+            min: 5,
+            max: 30,
+          },
+          key: 'fullName',
           value: user.fullName,
-          errorMessage: 'İsim 5 ile 30 karakter aralığında olmalı',
         },
         {
-          control: isEmail,
+          method: isEmail,
+          key: 'email',
           value: user.email,
-          errorMessage: 'E-mail doğru formatta değil',
         },
         {
-          control: isLength,
-          options: {min: 6},
+          method: isLength,
+          options: {
+            min: 6,
+          },
+          key: 'password',
           value: user.password,
-          errorMessage: 'Şifre minimum 6 karakter olmalı',
         },
       ],
       detailedControl,

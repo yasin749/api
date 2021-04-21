@@ -7,20 +7,20 @@ const response = require('../../common/response/response');
 module.exports = {
   addProduct: function (req, res, next) {
     const product = req.body;
-    const productValidate = productFormValidate(product, true);
+    const formValidationErrors = productFormValidate(product, true);
 
-    if (!productValidate.valid) {
-      response.validationError(res, productValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }
   },
   editProduct: function (req, res, next) {
     const product = req.body;
-    const productValidate = productFormValidate(product);
+    const formValidationErrors = productFormValidate(product);
 
-    if (!productValidate.valid) {
-      response.validationError(res, productValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }

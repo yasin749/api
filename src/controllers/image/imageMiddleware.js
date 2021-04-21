@@ -7,20 +7,20 @@ const response = require('../../common/response/response');
 module.exports = {
   addImage: function (req, res, next) {
     const image = req.body;
-    const imageValidate = imageFormValidate(image, true);
+    const formValidationErrors = imageFormValidate(image, true);
 
-    if (!imageValidate.valid) {
-      response.validationError(res, imageValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }
   },
   editImage: function (req, res, next) {
     const image = req.body;
-    const imageValidate = imageFormValidate(image);
+    const formValidationErrors = imageFormValidate(image);
 
-    if (!imageValidate.valid) {
-      response.validationError(res, imageValidate.error);
+    if (formValidationErrors.length) {
+      response.validationError(res, formValidationErrors);
     } else {
       next();
     }
