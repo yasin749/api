@@ -7,7 +7,7 @@ const response = require('../../common/response/response');
 module.exports = {
   addProduct: function (req, res, next) {
     const product = req.body;
-    const formValidationErrors = productFormValidate(product, true);
+    const formValidationErrors = productFormValidate(product);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);
@@ -17,7 +17,7 @@ module.exports = {
   },
   editProduct: function (req, res, next) {
     const product = req.body;
-    const formValidationErrors = productFormValidate(product);
+    const formValidationErrors = productFormValidate(product, true);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);

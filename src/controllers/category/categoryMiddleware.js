@@ -7,7 +7,7 @@ const response = require('../../common/response/response');
 module.exports = {
   addCategory: function (req, res, next) {
     const category = req.body;
-    const formValidationErrors = categoryFormValidate(category, true);
+    const formValidationErrors = categoryFormValidate(category);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);
@@ -17,7 +17,7 @@ module.exports = {
   },
   editCategory: function (req, res, next) {
     const category = req.body;
-    const formValidationErrors = categoryFormValidate(category);
+    const formValidationErrors = categoryFormValidate(category, true);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);

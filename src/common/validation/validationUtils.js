@@ -24,18 +24,17 @@ function validate(item) {
   return method(value, options);
 }
 
-function validateItems(toBeVerifiedItems, detailedControl) {
+function validateItems(toBeVerifyItems, checkOnlyExisting) {
   const errors = [];
+  for (let i = 0; i < toBeVerifyItems.length; i++) {
+    const item = toBeVerifyItems[i];
+    const {value, required} = item;
 
-  for (let i = 0; i < toBeVerifiedItems.length; i++) {
-    const item = toBeVerifiedItems[i];
-    const {value} = item;
     const existValue = value !== undefined;
+    const checkRequired = required && !checkOnlyExisting;
+    const isValidatable = existValue || checkRequired;
 
-    if (
-      (!existValue && detailedControl) ||
-      (existValue && !validate(item))
-    ) {
+    if (isValidatable && !validate(item)) {
       errors.push(generateValidationError(item));
     }
   }

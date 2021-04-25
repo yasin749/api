@@ -8,8 +8,6 @@ database query leri controller içerisinde yapılmamalı, api katmanı oluşturu
 
 endpointleri ve controller ları admin ve user için ayrıştırmak gerekebilir
 
-pagination mapper
-
 belongstomany relation olan alanlarda id ye göre sıralama olmuyor(avaluationgroup, image and gallery)
 custom scope kullanımında sorun var(image absolute url)
 
@@ -21,20 +19,9 @@ login endpointi oluşturulmalı
 
 comment, eklerken user id jwt ile çözülmeli
 
-
-response validation message eng
-error mesajında hangi alan hatalı olduğu belirtilmemeli. bu ayrı bir attribute olarak verilmeli
-
-category => parentCategoryId
-product => categoryId, coverGalleryId, contentGalleryId, evaluationGroupId. categoryId ve evaluationGroupId ekleme modunda zorunlu olmalı
-mevcutsa eğer numara olup olmadığını bakılmalı
-
-edit yapıldığında hiçbir item gönderilmediyse 500 vermeli
-
-validation lara bağlantılı tabloların id kolonlarıda eklenecek XXID gibi
-
-status, deleted gibi alanlar isBoolean ile validate edilmeli
-sort isInt
+User edit endpointinden password değiştirilememeli
+comment edit endpointi userId ve ProductId değiştirmeyi kabul etmemeli
+image edit ekranından path editlenememeli
 
 galeriye image ekleme endpointi olmalı
 

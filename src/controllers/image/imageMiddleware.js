@@ -7,7 +7,7 @@ const response = require('../../common/response/response');
 module.exports = {
   addImage: function (req, res, next) {
     const image = req.body;
-    const formValidationErrors = imageFormValidate(image, true);
+    const formValidationErrors = imageFormValidate(image);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);
@@ -17,7 +17,7 @@ module.exports = {
   },
   editImage: function (req, res, next) {
     const image = req.body;
-    const formValidationErrors = imageFormValidate(image);
+    const formValidationErrors = imageFormValidate(image, true);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);

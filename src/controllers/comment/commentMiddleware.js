@@ -7,7 +7,7 @@ const response = require('../../common/response/response');
 module.exports = {
   addComment: function (req, res, next) {
     const comment = req.body;
-    const formValidationErrors = commentFormValidate(comment, true);
+    const formValidationErrors = commentFormValidate(comment);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);
@@ -17,7 +17,7 @@ module.exports = {
   },
   editComment: function (req, res, next) {
     const comment = req.body;
-    const formValidationErrors = commentFormValidate(comment);
+    const formValidationErrors = commentFormValidate(comment, true);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);

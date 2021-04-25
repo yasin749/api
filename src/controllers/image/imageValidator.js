@@ -1,6 +1,7 @@
 /* Validators */
 const {
   isURL,
+  isBoolean,
 } = require('../../common/validation/validation');
 
 /* Utils */
@@ -9,7 +10,7 @@ const {
 } = require('../../common/validation/validationUtils');
 
 module.exports = {
-  imageFormValidate: function (image, detailedControl) {
+  imageFormValidate: function (image, checkOnlyExisting) {
     return validateItems([
         {
           method: isURL,
@@ -18,9 +19,20 @@ module.exports = {
           },
           key: 'path',
           value: image.path,
+          required: true,
+        },
+        {
+          method: isBoolean,
+          key: 'status',
+          value: image.status,
+        },
+        {
+          method: isBoolean,
+          key: 'deleted',
+          value: image.deleted,
         },
       ],
-      detailedControl,
+      checkOnlyExisting,
     );
   }
 }

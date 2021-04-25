@@ -2,6 +2,7 @@
 const {
   isLength,
   isEmail,
+  isBoolean,
 } = require('../../common/validation/validation');
 
 /* Utils */
@@ -10,7 +11,7 @@ const {
 } = require('../../common/validation/validationUtils');
 
 module.exports = {
-  userFormValidate: function (user, detailedControl) {
+  userFormValidate: function (user, checkOnlyExisting) {
     return validateItems([
         {
           method: isLength,
@@ -20,11 +21,13 @@ module.exports = {
           },
           key: 'fullName',
           value: user.fullName,
+          required: true,
         },
         {
           method: isEmail,
           key: 'email',
           value: user.email,
+          required: true,
         },
         {
           method: isLength,
@@ -33,9 +36,20 @@ module.exports = {
           },
           key: 'password',
           value: user.password,
+          required: true,
+        },
+        {
+          method: isBoolean,
+          key: 'status',
+          value: user.status,
+        },
+        {
+          method: isBoolean,
+          key: 'deleted',
+          value: user.deleted,
         },
       ],
-      detailedControl,
+      checkOnlyExisting,
     );
   }
 }

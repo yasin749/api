@@ -1,32 +1,32 @@
 const validator = require('validator');
 
-function isEmpty(string) {
+function isEmpty(string = '') {
   string = validator.trim(string);
   return validator.isEmpty(string);
 }
 
-function isFull(string) {
+function isFull(string = '') {
   string = validator.trim(string);
   return !validator.isEmpty(string);
 }
 
-function isAlpha(string) {
+function isAlpha(string = '') {
   return validator.isAlpha(string);
 }
 
-function isAlphanumeric(string) {
+function isAlphanumeric(string = '') {
   return validator.isAlphanumeric(string);
 }
 
-function isNumeric(string) {
-  return validator.isAlphanumeric(string);
+function isNumeric(string = '') {
+  return validator.isNumeric(string);
 }
 
-function isBoolean(string) {
+function isBoolean(string = '') {
   return validator.isBoolean(string);
 }
 
-function isLength(string, options) {
+function isLength(string = '', options) {
   const {
     min,
     max,
@@ -40,11 +40,11 @@ function isLength(string, options) {
   return validator.isLength(string, handledOptions);
 }
 
-function isEmail(string) {
+function isEmail(string = '') {
   return validator.isEmail(string);
 }
 
-function isURL(string, options) {
+function isURL(string = '', options) {
   const {
     allowRelative
   } = options;

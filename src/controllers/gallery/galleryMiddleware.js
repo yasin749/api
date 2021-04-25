@@ -7,7 +7,7 @@ const response = require('../../common/response/response');
 module.exports = {
   addGallery: function (req, res, next) {
     const gallery = req.body;
-    const formValidationErrors = galleryFormValidate(gallery, true);
+    const formValidationErrors = galleryFormValidate(gallery);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);
@@ -17,7 +17,7 @@ module.exports = {
   },
   editGallery: function (req, res, next) {
     const gallery = req.body;
-    const formValidationErrors = galleryFormValidate(gallery);
+    const formValidationErrors = galleryFormValidate(gallery, true);
 
     if (formValidationErrors.length) {
       response.validationError(res, formValidationErrors);
