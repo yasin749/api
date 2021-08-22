@@ -7,6 +7,12 @@ const CONSTANTS = require('./evaluationGroupConstants');
 /* Response */
 const response = require('../../common/response/response');
 
+/* Utils */
+const {
+  resolve,
+  resolveWithChain,
+} = require('../../common/promise/promiseUtils');
+
 module.exports = {
   evaluationGroups: async function (req, res) {
     const page = parseInt(req.query.page) || 1;

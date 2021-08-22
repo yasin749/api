@@ -7,15 +7,21 @@ const CONSTANTS = require('./categoryConstants');
 /* Response */
 const response = require('../../common/response/response');
 
+/* Utils */
+const {
+  resolve,
+  resolveWithChain,
+} = require('../../common/promise/promiseUtils');
+
 module.exports = {
   categories: async function (req, res) {
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
-    const categories = await database.models.Category.findAll({
+    const categories = await resolve(database.models.Category.findAll({
       offset: offset,
       limit: CONSTANTS.PER_PAGE,
-    });
+    }));
 
     if (categories.length) {
       response.ok(res, categories);
@@ -29,7 +35,7 @@ module.exports = {
     const page = parseInt(req.query.page) || 1;
     const offset = (page - 1) * CONSTANTS.PER_PAGE;
 
-    const category = await database.models.Category.findOne({
+    await resolve(database.models.Category.findOne({
       where: {id: categoryId},
       include: {
         model: database.models.Product,
@@ -38,39 +44,40 @@ module.exports = {
         offset: offset,
         limit: CONSTANTS.PER_PAGE,
       }
-    });
-
-    if (category) {
+    })).then(category => {
+      if (!category) {
+        throw new Error();
+      }
       response.ok(res, category);
-    } else {
+    }).catch(() => {
       response.error(res);
-    }
+    });
   },
   addCategory: async function (req, res) {
     const category = req.body;
 
-    await database.models.Category.create(category).then(() => {
+    await resolveWithChain(database.models.Category.create(category).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
-    });
+    }));
   },
   editCategory: async function (req, res) {
     const categoryId = parseInt(req.params.categoryId);
     const category = req.body;
 
-    await database.models.Category.update(category, {
+    await resolveWithChain(database.models.Category.update(category, {
       where: {id: categoryId},
     }).then(() => {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
-    });
+    }));
   },
   deleteCategory: async function (req, res) {
     const categoryId = parseInt(req.params.categoryId);
 
-    await database.models.Category.update({
+    await resolveWithChain(database.models.Category.update({
       deleted: true,
     }, {
       where: {id: categoryId},
@@ -78,6 +85,6 @@ module.exports = {
       response.ok(res);
     }).catch(e => {
       response.sequelizeError(res, e);
-    });
+    }));
   },
 };

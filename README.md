@@ -1,28 +1,10 @@
-TODO LIST
+Çalıştırmak için öcelikle cihazda kurulu olan PostgreSQL database bilgileri database config file ına(src/config/databaseConfig/local.conf.js) girilmeli.
 
-Kullanıcı ekleme silme endpointlerinde authentication, authorization kontrolü olmalı
-admin ve user scope ları oluşturulmalı
-userTypeId hardcoded 2 verildi, düzeltilmeli
+Sonrasında aşağıdaki adımlar uygulanarak proje 3000 portunda ayağa kaldırılabilir.
 
-database query leri controller içerisinde yapılmamalı, api katmanı oluşturulmalı
+yarn install
+yarn run sq:rebuild
+yarn run start:dev
 
-endpointleri ve controller ları admin ve user için ayrıştırmak gerekebilir
-
-belongstomany relation olan alanlarda id ye göre sıralama olmuyor(avaluationgroup, image and gallery)
-custom scope kullanımında sorun var(image absolute url)
-
-kategori hierarşisi
-
-unhandledRejection
-
-login endpointi oluşturulmalı
-
-comment, eklerken user id jwt ile çözülmeli
-
-User edit endpointinden password değiştirilememeli
-comment edit endpointi userId ve ProductId değiştirmeyi kabul etmemeli
-image edit ekranından path editlenememeli
-
-galeriye image ekleme endpointi olmalı
-
-swagger da her item için model oluşturulmalı
+Proje ayağa kaltıktan sonra aşağıdaki linkteki swagger üzerinden endpointler görüntülenebilir.
+http://localhost:3000/api/

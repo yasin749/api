@@ -6,6 +6,10 @@ const response = require('../../common/response/response');
 
 /* Utils */
 const {imageFullPathUnifyer} = require('./../image/imageUtils');
+const {
+  resolve,
+  resolveWithChain,
+} = require('../../common/promise/promiseUtils');
 
 module.exports = {
   productDetail: async function (req, res) {
